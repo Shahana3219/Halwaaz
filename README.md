@@ -90,4 +90,38 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 
 ## Running CodeIgniter Tests
 
+
+Halwaaz – Project Description
+
+Halwaaz is a web-based management system developed using PHP (CodeIgniter 4) that focuses on efficient inventory, category, and transaction management.
+The application follows a clean MVC architecture, ensuring maintainability, scalability, and separation of concerns.
+
+Halwaaz includes role-based access control, secure authentication, and structured APIs to support administrative and operational workflows. It is designed for small to medium-scale business environments where simplicity, reliability, and performance are essential.
+
+Used Versions
+
+PHP: 8.1
+
+Framework: CodeIgniter 4.x
+
+Database: MySQL 8.0
+
+Web Server: Apache 2.4 (XAMPP)
+
+Frontend Technologies:
+
+HTML5
+
+CSS3
+
+Bootstrap 5
+
+JavaScript (ES6)
+
+jQuery
+
+Version Control: Git
+
+Development Environment: XAMPP (Windows)
+
 Information on running the CodeIgniter test suite can be found in the [README.md](tests/README.md) file in the tests directory.
