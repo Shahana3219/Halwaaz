@@ -1,0 +1,32 @@
+CRITICAL - 2026-01-07 23:41:17 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'trim(): Passing...', 'C:\\xampp\\htdocs...', 339)
+#1 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(339): trim(NULL)
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_list()
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2026-01-07 23:48:07 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'trim(): Passing...', 'C:\\xampp\\htdocs...', 202)
+#1 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(202): trim(NULL)
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_category()
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2026-01-07 23:48:15 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'trim(): Passing...', 'C:\\xampp\\htdocs...', 202)
+#1 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(202): trim(NULL)
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_category()
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2026-01-07 23:48:29 --> trim(): Passing null to parameter #1 ($string) of type string is deprecated
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(8192, 'trim(): Passing...', 'C:\\xampp\\htdocs...', 202)
+#1 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(202): trim(NULL)
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_category()
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}

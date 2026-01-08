@@ -1,0 +1,205 @@
+CRITICAL - 2025-12-21 08:57:10 --> Invalid file: add_item.php
+#0 C:\xampp\htdocs\Halwaaz\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('add_item.php')
+#1 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('add_item', Array, true)
+#2 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(178): view('add_item', Array)
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_item()
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2025-12-21 08:57:36 --> Invalid file: add_item.php
+#0 C:\xampp\htdocs\Halwaaz\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('add_item.php')
+#1 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('add_item', Array, true)
+#2 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(178): view('add_item', Array)
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_item()
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+ERROR - 2025-12-21 08:58:23 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 08:58:42 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 08:58:44 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 09:08:44 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-21 09:17:40 --> Undefined index: name
+#0 C:\xampp\htdocs\Halwaaz\app\Views\edit_itemlist.php(237): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 237, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('edit_itemlist', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(276): view('edit_itemlist', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->edit_itemlist('2')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-21 09:25:47 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 09:25:51 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 09:33:19 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 09:34:42 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:05:37 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-21 10:06:44 --> Too few arguments to function CodeIgniter\HTTP\IncomingRequest::getFile(), 0 passed in C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php on line 285 and exactly 1 expected
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(285): CodeIgniter\HTTP\IncomingRequest->getFile()
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_edit_itemlist()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-12-21 10:07:59 --> Undefined index: quantity
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(298): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 298, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_edit_itemlist()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-12-21 10:08:30 --> Undefined index: quantity
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(298): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 298, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_edit_itemlist()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2025-12-21 10:08:35 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:08:59 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:11:40 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:12:27 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:12:39 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:12:47 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:24:28 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:24:35 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:25:24 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:25:25 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:25:26 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:25:29 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:56:36 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:56:37 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:57:56 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 10:59:57 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:01:46 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:02:52 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:03:54 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:04:00 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:04:53 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:07:20 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:08:07 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:08:12 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:08:12 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:08:17 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:08:18 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:08:24 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:08:24 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:09:22 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:09:23 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:09:23 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:09:27 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:09:27 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:09:33 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:09:33 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:11:38 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:11:58 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-21 11:12:02 --> Too few arguments to function App\Models\MyModel::update_data(), 2 passed in C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php on line 316 and exactly 3 expected
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(316): App\Models\MyModel->update_data('tbl_items', Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->delete_item()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2025-12-21 11:12:04 --> Too few arguments to function App\Models\MyModel::update_data(), 2 passed in C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php on line 316 and exactly 3 expected
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(316): App\Models\MyModel->update_data('tbl_items', Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->delete_item()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2025-12-21 11:17:13 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:17:41 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:17:41 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:17:56 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:18:00 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-21 11:18:00 --> Undefined variable: item
+#0 C:\xampp\htdocs\Halwaaz\app\Views\items_list.php(262): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 262, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('items_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(259): view('items_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-21 11:19:04 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:19:07 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:19:12 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:20:22 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:24:06 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 11:25:30 --> itemslist accesd by user ID:
+ERROR - 2025-12-21 22:11:25 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2025-12-21 22:11:25 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `n...', Array, false)
+#2 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(80): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(98): App\Models\MyModel->select_data('tbl_users', 'id, name, passw...', Array)
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_login()
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2025-12-21 22:13:00 --> Error connecting to the database: No connection could be made because the target machine actively refused it.
+
+CRITICAL - 2025-12-21 22:13:00 --> Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it.
+
+#0 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `n...', Array, false)
+#2 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(80): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(98): App\Models\MyModel->select_data('tbl_users', 'id, name, passw...', Array)
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_login()
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2025-12-21 22:46:29 --> Undefined variable: selected_category_name
+#0 C:\xampp\htdocs\Halwaaz\app\Views\category_items.php(99): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 99, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('category_items', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(329): view('category_items', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_by_category('2')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-21 22:47:30 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\category_items.php(76): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 76, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('category_items', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(329): view('category_items', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_by_category('2')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-21 22:50:52 --> Undefined variable: selected_category_name
+#0 C:\xampp\htdocs\Halwaaz\app\Views\category_items.php(93): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 93, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('category_items', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(329): view('category_items', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_by_category('2')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-21 22:51:02 --> Undefined variable: selected_category_name
+#0 C:\xampp\htdocs\Halwaaz\app\Views\category_items.php(93): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 93, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('category_items', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(329): view('category_items', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_by_category('2')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

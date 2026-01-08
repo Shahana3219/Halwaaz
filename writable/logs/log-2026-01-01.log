@@ -1,0 +1,184 @@
+CRITICAL - 2026-01-01 09:21:04 --> Undefined variable: orderId
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(753): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 753, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->buy_now()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-01 09:21:10 --> Undefined variable: orderId
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(753): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 753, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->buy_now()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-01 09:21:26 --> Undefined variable: orderId
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(753): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 753, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->buy_now()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-01 09:21:39 --> Undefined variable: orderId
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(753): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 753, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->buy_now()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-01 09:36:10 --> Undefined variable: db
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(739): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 739, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->buy_now()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-01 10:01:01 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(194): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 194, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(483): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 10:03:23 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(194): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 194, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(483): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 10:03:42 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(194): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 194, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(483): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 10:04:03 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(194): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 194, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(483): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 10:04:05 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(194): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 194, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(483): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 10:05:42 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(194): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 194, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(483): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 10:05:47 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(194): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 194, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(483): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 10:15:53 --> Undefined index: item_quantity
+#0 C:\xampp\htdocs\Halwaaz\app\Views\category_items.php(222): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 222, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('category_items', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(450): view('category_items', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_by_category('4')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 10:16:25 --> Undefined index: item_id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\category_items.php(225): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 225, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('category_items', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(450): view('category_items', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_by_category('4')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 11:24:27 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\my_orders.php(74): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 74, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('my_orders', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(800): view('my_orders', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->my_orders()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-01 11:33:01 --> Undefined variable: userid
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(802): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 802, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->my_orders()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-01 11:37:40 --> Undefined variable: userId
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(169): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 169, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->home()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-01 11:38:01 --> Undefined variable: user_id
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(169): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 169, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->home()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-01 11:38:02 --> Undefined variable: user_id
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(169): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 169, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->home()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-01 11:50:08 --> Undefined index: order_statuses
+#0 C:\xampp\htdocs\Halwaaz\app\Views\my_orders.php(81): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 81, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('my_orders', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(825): view('my_orders', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->my_orders()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

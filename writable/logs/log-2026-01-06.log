@@ -1,0 +1,36 @@
+ERROR - 2026-01-06 23:39:04 --> Error connecting to the database: Unknown database 'halwaaz'
+CRITICAL - 2026-01-06 23:39:04 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'halwaaz'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `n...', Array, false)
+#2 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(109): App\Models\MyModel->select_data('tbl_users', 'id, name, passw...', Array)
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_login()
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2026-01-06 23:39:47 --> Error connecting to the database: Unknown database 'halwaaz'
+CRITICAL - 2026-01-06 23:39:47 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'halwaaz'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `n...', Array, false)
+#2 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(109): App\Models\MyModel->select_data('tbl_users', 'id, name, passw...', Array)
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_login()
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2026-01-06 23:39:52 --> Error connecting to the database: Unknown database 'halwaaz'
+CRITICAL - 2026-01-06 23:39:52 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'halwaaz'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `n...', Array, false)
+#2 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(109): App\Models\MyModel->select_data('tbl_users', 'id, name, passw...', Array)
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_login()
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}

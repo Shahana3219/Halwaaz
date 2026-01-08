@@ -1,0 +1,152 @@
+ERROR - 2025-12-22 02:31:13 --> Unknown column 'name' in 'field list'
+CRITICAL - 2025-12-22 02:31:13 --> Unknown column 'name' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(54): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(416): App\Models\MyModel->insert_to_tb('tbl_cart', Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_to_cart()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2025-12-22 02:37:14 --> Unknown column 'name' in 'field list'
+CRITICAL - 2025-12-22 02:37:14 --> Unknown column 'name' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(54): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(416): App\Models\MyModel->insert_to_tb('tbl_cart', Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_to_cart()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2025-12-22 02:37:16 --> Unknown column 'name' in 'field list'
+CRITICAL - 2025-12-22 02:37:16 --> Unknown column 'name' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(54): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(416): App\Models\MyModel->insert_to_tb('tbl_cart', Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_to_cart()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2025-12-22 02:40:24 --> Unknown column 'name' in 'field list'
+CRITICAL - 2025-12-22 02:40:24 --> Unknown column 'name' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(54): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(416): App\Models\MyModel->insert_to_tb('tbl_cart', Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_to_cart()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2025-12-22 02:41:11 --> Unknown column 'name' in 'field list'
+CRITICAL - 2025-12-22 02:41:11 --> Unknown column 'name' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(54): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(416): App\Models\MyModel->insert_to_tb('tbl_cart', Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_to_cart()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-12-22 03:12:15 --> Undefined variable: inCart
+#0 C:\xampp\htdocs\Halwaaz\app\Views\category_items.php(125): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 125, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('category_items', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(347): view('category_items', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_by_category('3')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-22 03:54:41 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\category_items.php(79): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 79, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('category_items', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(354): view('category_items', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_by_category('2')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-22 04:17:08 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 27, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(421): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-22 04:31:30 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-22 04:34:17 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 27, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(439): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-22 04:36:45 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 27, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(439): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-22 04:59:11 --> The original file is not a valid file.
+#0 C:\xampp\htdocs\Halwaaz\system\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+#1 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(294): CodeIgniter\HTTP\Files\UploadedFile->move('uploads/items/', '')
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_item()
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2025-12-22 05:00:36 --> The original file is not a valid file.
+#0 C:\xampp\htdocs\Halwaaz\system\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+#1 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(294): CodeIgniter\HTTP\Files\UploadedFile->move('uploads/items/', '')
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->save_item()
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2025-12-22 05:02:25 --> itemslist accesd by user ID:
+ERROR - 2025-12-22 05:03:01 --> itemslist accesd by user ID:
+ERROR - 2025-12-22 05:04:07 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-22 05:37:50 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\cart.php(27): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 27, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('cart', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(451): view('cart', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cart()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-22 06:11:00 --> itemslist accesd by user ID:

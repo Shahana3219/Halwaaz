@@ -1,0 +1,78 @@
+ERROR - 2025-12-20 05:10:35 --> itemslist accesd by user ID:
+ERROR - 2025-12-20 05:27:52 --> itemslist accesd by user ID:
+ERROR - 2025-12-20 05:28:02 --> itemslist accesd by user ID:
+ERROR - 2025-12-20 05:28:14 --> itemslist accesd by user ID:
+ERROR - 2025-12-20 05:30:05 --> itemslist accesd by user ID:
+ERROR - 2025-12-20 05:31:07 --> itemslist accesd by user ID:
+ERROR - 2025-12-20 05:31:09 --> itemslist accesd by user ID:
+ERROR - 2025-12-20 05:31:20 --> itemslist accesd by user ID:
+ERROR - 2025-12-20 05:31:56 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-20 05:47:23 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\edit_itemlist.php(234): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 234, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('edit_itemlist', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(274): view('edit_itemlist', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->edit_itemlist('6')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-20 05:48:33 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\edit_itemlist.php(234): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 234, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('edit_itemlist', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(275): view('edit_itemlist', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->edit_itemlist('6')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-20 05:48:34 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\edit_itemlist.php(234): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 234, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('edit_itemlist', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(275): view('edit_itemlist', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->edit_itemlist('6')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-20 05:48:34 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\edit_itemlist.php(234): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 234, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('edit_itemlist', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(275): view('edit_itemlist', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->edit_itemlist('6')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-12-20 05:48:35 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\edit_itemlist.php(234): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 234, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('edit_itemlist', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(275): view('edit_itemlist', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->edit_itemlist('6')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-20 05:48:36 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-20 05:48:39 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\edit_itemlist.php(234): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 234, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('edit_itemlist', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(275): view('edit_itemlist', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->edit_itemlist('6')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-20 05:56:31 --> itemslist accesd by user ID:
+ERROR - 2025-12-20 05:59:33 --> itemslist accesd by user ID:

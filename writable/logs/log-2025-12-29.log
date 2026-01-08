@@ -1,0 +1,79 @@
+ERROR - 2025-12-29 03:14:31 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:18:37 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:23:27 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:24:05 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:24:08 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:24:35 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:24:41 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:25:14 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:25:19 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:28:33 --> itemslist accesd by user ID:
+ERROR - 2025-12-29 03:38:02 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-29 03:38:02 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\items_list.php(247): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 247, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('items_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(322): view('items_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-29 03:40:33 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-29 03:40:33 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\items_list.php(247): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 247, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('items_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(322): view('items_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-29 03:40:34 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-29 03:40:34 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\items_list.php(247): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 247, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('items_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(322): view('items_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-29 03:40:37 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-29 03:40:37 --> Undefined variable: categories
+#0 C:\xampp\htdocs\Halwaaz\app\Views\items_list.php(247): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 247, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('items_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(322): view('items_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2025-12-29 03:42:25 --> itemslist accesd by user ID:
+CRITICAL - 2025-12-29 04:56:13 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::getCompiledSelect()
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(327): App\Models\MyModel->get_items('', NULL, NULL, NULL)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->items_list()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2025-12-29 05:36:43 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:' at line 3
+CRITICAL - 2025-12-29 05:36:43 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':0:' at line 3
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `id`, `n...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `n...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `n...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `n...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(80): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(198): App\Models\MyModel->select_data('tbl_category', 'id,name', Array, Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->add_category()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}

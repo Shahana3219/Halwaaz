@@ -1,0 +1,610 @@
+CRITICAL - 2026-01-02 01:31:02 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\my_orders.php(59): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 59, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('my_orders', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(825): view('my_orders', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->my_orders()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2026-01-02 01:59:46 --> Unknown column 'oi.quantity' in 'field list'
+CRITICAL - 2026-01-02 01:59:46 --> Unknown column 'oi.quantity' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `oi`.`qu...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `oi`.`qu...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `oi`.`qu...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `oi`.`qu...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(840): App\Models\MyModel->get_order_details('9')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('9')
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 01:59:51 --> Unknown column 'oi.quantity' in 'field list'
+CRITICAL - 2026-01-02 01:59:51 --> Unknown column 'oi.quantity' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `oi`.`qu...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `oi`.`qu...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `oi`.`qu...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `oi`.`qu...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(840): App\Models\MyModel->get_order_details('9')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('9')
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 02:01:09 --> Unknown column 'oi.item_quantity' in 'field list'
+CRITICAL - 2026-01-02 02:01:09 --> Unknown column 'oi.item_quantity' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `oi`.`it...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `oi`.`it...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `oi`.`it...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `oi`.`it...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(840): App\Models\MyModel->get_order_details('9')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('9')
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 02:01:10 --> Unknown column 'oi.item_quantity' in 'field list'
+CRITICAL - 2026-01-02 02:01:10 --> Unknown column 'oi.item_quantity' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `oi`.`it...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `oi`.`it...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `oi`.`it...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `oi`.`it...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(840): App\Models\MyModel->get_order_details('9')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('9')
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 02:01:13 --> Unknown column 'oi.item_quantity' in 'field list'
+CRITICAL - 2026-01-02 02:01:13 --> Unknown column 'oi.item_quantity' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `oi`.`it...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `oi`.`it...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `oi`.`it...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `oi`.`it...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(203): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(840): App\Models\MyModel->get_order_details('10')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('10')
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-01-02 02:05:33 --> Undefined index: total_price
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(134): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 134, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(844): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('10')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 02:05:37 --> Undefined index: total_price
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(134): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 134, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(844): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('10')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 02:19:08 --> Undefined variable: orders
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(106): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 106, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(844): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('15')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 02:19:25 --> Illegal string offset 'item_image'
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(108): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Illegal string ...', 'C:\\xampp\\htdocs...', 108, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(844): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('15')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 02:22:29 --> Call to undefined method App\Models\MyModel::get_order_summary
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(831): CodeIgniter\Model->__call('get_order_summa...', Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('15')
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-02 02:22:34 --> Call to undefined method App\Models\MyModel::get_order_summary
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(831): CodeIgniter\Model->__call('get_order_summa...', Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('15')
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-02 02:32:36 --> Undefined index: id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(93): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 93, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(840): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('15')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 04:23:07 --> Undefined variable: userId
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(839): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 839, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('21')
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-02 04:31:08 --> Undefined variable: quantity
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(161): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 161, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('21')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 04:31:29 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(162): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 162, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('21')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 04:31:30 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(162): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 162, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('21')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 04:31:33 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(162): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 162, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('21')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 04:32:52 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(162): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 162, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('21')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 04:35:44 --> syntax error, unexpected end of file
+#0 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#2 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('21')
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2026-01-02 04:36:06 --> syntax error, unexpected end of file
+#0 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#2 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('21')
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2026-01-02 04:36:07 --> syntax error, unexpected end of file
+#0 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#2 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('21')
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2026-01-02 04:45:26 --> Undefined index: quantity
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(117): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 117, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('20')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 04:50:40 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(168): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 168, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('20')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 04:51:11 --> Undefined index: amount
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(168): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 168, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(860): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('20')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2026-01-02 06:01:17 --> Unknown column 'order_status' in 'field list'
+CRITICAL - 2026-01-02 06:01:17 --> Unknown column 'order_status' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(54): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(784): App\Models\MyModel->insert_to_tb('tbl_order_items', Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->buy_now()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 06:01:38 --> Unknown column 'order_status' in 'field list'
+CRITICAL - 2026-01-02 06:01:38 --> Unknown column 'order_status' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(54): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(784): App\Models\MyModel->insert_to_tb('tbl_order_items', Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->buy_now()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 06:01:52 --> Unknown column 'order_status' in 'field list'
+CRITICAL - 2026-01-02 06:01:52 --> Unknown column 'order_status' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(54): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(784): App\Models\MyModel->insert_to_tb('tbl_order_items', Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->buy_now()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-01-02 06:39:09 --> Undefined index: order_id
+#0 C:\xampp\htdocs\Halwaaz\app\Views\order_details.php(237): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 237, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('order_details', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(868): view('order_details', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->order_details('28')
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 06:48:46 --> Too few arguments to function App\Controllers\MyController::cancel_order(), 0 passed in C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->cancel_order()
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2026-01-02 11:05:42 --> Unknown column 'o.id' in 'field list'
+CRITICAL - 2026-01-02 11:05:42 --> Unknown column 'o.id' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(923): App\Models\MyModel->select_data('tbl_order_items...', '\n            o....', Array, Array, Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:10:36 --> Unknown column 'o.id' in 'field list'
+CRITICAL - 2026-01-02 11:10:36 --> Unknown column 'o.id' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(922): App\Models\MyModel->select_data('tbl_order_items...', '\n            o....', Array, Array, Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:10:37 --> Unknown column 'o.id' in 'field list'
+CRITICAL - 2026-01-02 11:10:37 --> Unknown column 'o.id' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(922): App\Models\MyModel->select_data('tbl_order_items...', '\n            o....', Array, Array, Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:10:38 --> Unknown column 'o.id' in 'field list'
+CRITICAL - 2026-01-02 11:10:38 --> Unknown column 'o.id' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(922): App\Models\MyModel->select_data('tbl_order_items...', '\n            o....', Array, Array, Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:10:41 --> Unknown column 'o.id' in 'field list'
+CRITICAL - 2026-01-02 11:10:41 --> Unknown column 'o.id' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(922): App\Models\MyModel->select_data('tbl_order_items...', '\n            o....', Array, Array, Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:12:49 --> Unknown column 'o.id' in 'field list'
+CRITICAL - 2026-01-02 11:12:49 --> Unknown column 'o.id' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(922): App\Models\MyModel->select_data('tbl_order_items...', '\n            o....', Array, Array, Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:12:50 --> Unknown column 'o.id' in 'field list'
+CRITICAL - 2026-01-02 11:12:50 --> Unknown column 'o.id' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(922): App\Models\MyModel->select_data('tbl_order_items...', '\n            o....', Array, Array, Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:12:53 --> Unknown column 'o.id' in 'field list'
+CRITICAL - 2026-01-02 11:12:53 --> Unknown column 'o.id' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(85): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(922): App\Models\MyModel->select_data('tbl_order_items...', '\n            o....', Array, Array, Array)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:19:33 --> Unknown column 'oi.item_quantity' in 'field list'
+CRITICAL - 2026-01-02 11:19:33 --> Unknown column 'oi.item_quantity' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(269): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(908): App\Models\MyModel->get_orders_list(NULL, NULL)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:19:35 --> Unknown column 'oi.item_quantity' in 'field list'
+CRITICAL - 2026-01-02 11:19:35 --> Unknown column 'oi.item_quantity' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `o`.`id`...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `o`.`id`...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `o`.`id`...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `o`.`id`...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(269): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(908): App\Models\MyModel->get_orders_list(NULL, NULL)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-01-02 11:20:26 --> Undefined index: quantity
+#0 C:\xampp\htdocs\Halwaaz\app\Views\orders_list.php(176): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 176, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('orders_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(911): view('orders_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 11:21:11 --> Undefined index: price
+#0 C:\xampp\htdocs\Halwaaz\app\Views\orders_list.php(177): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 177, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('orders_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(911): view('orders_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 11:25:03 --> Undefined variable: status
+#0 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(906): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 906, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2026-01-02 11:26:40 --> Undefined variable: status
+#0 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(259): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 259, Array)
+#1 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(906): App\Models\MyModel->get_orders_list(NULL)
+#2 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#3 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#4 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+CRITICAL - 2026-01-02 11:34:00 --> Undefined property: CodeIgniter\View\View::$request
+#0 C:\xampp\htdocs\Halwaaz\app\Views\orders_list.php(162): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 162, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('orders_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(910): view('orders_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->orders_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2026-01-02 11:50:43 --> Unknown column 'oi.quantity' in 'field list'
+CRITICAL - 2026-01-02 11:50:43 --> Unknown column 'oi.quantity' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `i`.`nam...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `i`.`nam...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `i`.`nam...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `i`.`nam...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(301): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(921): App\Models\MyModel->get_sales_report(NULL, NULL, NULL)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->report_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:52:06 --> Unknown column 'oi.price' in 'field list'
+CRITICAL - 2026-01-02 11:52:06 --> Unknown column 'oi.price' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `i`.`nam...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `i`.`nam...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `i`.`nam...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `i`.`nam...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(301): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(921): App\Models\MyModel->get_sales_report(NULL, NULL, NULL)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->report_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:52:07 --> Unknown column 'oi.price' in 'field list'
+CRITICAL - 2026-01-02 11:52:07 --> Unknown column 'oi.price' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `i`.`nam...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `i`.`nam...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `i`.`nam...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `i`.`nam...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(301): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(921): App\Models\MyModel->get_sales_report(NULL, NULL, NULL)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->report_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:52:07 --> Unknown column 'oi.price' in 'field list'
+CRITICAL - 2026-01-02 11:52:07 --> Unknown column 'oi.price' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `i`.`nam...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `i`.`nam...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `i`.`nam...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `i`.`nam...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(301): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(921): App\Models\MyModel->get_sales_report(NULL, NULL, NULL)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->report_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2026-01-02 11:52:46 --> Unknown column 'i.total_amount' in 'field list'
+CRITICAL - 2026-01-02 11:52:46 --> Unknown column 'i.total_amount' in 'field list'
+#0 C:\xampp\htdocs\Halwaaz\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `i`.`nam...', 0)
+#1 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `i`.`nam...')
+#2 C:\xampp\htdocs\Halwaaz\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `i`.`nam...')
+#3 C:\xampp\htdocs\Halwaaz\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `i`.`nam...', Array, false)
+#4 C:\xampp\htdocs\Halwaaz\app\Models\MyModel.php(301): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(921): App\Models\MyModel->get_sales_report(NULL, NULL, NULL)
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->report_list()
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#8 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2026-01-02 11:53:14 --> Undefined property: CodeIgniter\View\View::$request
+#0 C:\xampp\htdocs\Halwaaz\app\Views\report_list.php(149): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 149, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('report_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(927): view('report_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->report_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 11:55:07 --> Undefined property: CodeIgniter\View\View::$request
+#0 C:\xampp\htdocs\Halwaaz\app\Views\report_list.php(149): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 149, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('report_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(926): view('report_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->report_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 11:55:09 --> Undefined property: CodeIgniter\View\View::$request
+#0 C:\xampp\htdocs\Halwaaz\app\Views\report_list.php(149): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 149, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('report_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(926): view('report_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->report_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2026-01-02 11:55:15 --> Undefined property: CodeIgniter\View\View::$request
+#0 C:\xampp\htdocs\Halwaaz\app\Views\report_list.php(149): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 149, Array)
+#1 C:\xampp\htdocs\Halwaaz\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Halwaaz\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Halwaaz\system\Common.php(1089): CodeIgniter\View\View->render('report_list', Array, true)
+#4 C:\xampp\htdocs\Halwaaz\app\Controllers\MyController.php(926): view('report_list', Array)
+#5 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(832): App\Controllers\MyController->report_list()
+#6 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MyController))
+#7 C:\xampp\htdocs\Halwaaz\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Halwaaz\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
