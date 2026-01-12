@@ -161,7 +161,7 @@ tbody tr:hover {
 <div class="main">
 
     <div class="header">
-        <h1>Sales Reports</h1>
+        <h1>Userwise Reports</h1>
     </div>
 
     <!-- Filter Card -->
@@ -180,6 +180,11 @@ tbody tr:hover {
                    value="<?= esc($toDate ?? '') ?>">
 
             <button type="submit" class="btn">Search</button>
+               <a href="<?= base_url('report_pdf1') . '?' . http_build_query($_GET) ?>"
+   class="btn"
+   style="margin-left:10px;">
+   Export PDF
+</a>
             <button type="button" class="btn btn-reset"
         onclick="window.location.href='<?= base_url('userwise_report') ?>'">
     Reset

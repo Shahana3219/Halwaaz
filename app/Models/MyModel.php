@@ -268,24 +268,27 @@ public function get_sales_report($fromDate = null, $toDate = null, $itemName = n
 
     $query->select('
         i.name AS item_name,
-        SUM(o.item_quantity) AS total_sold,
-        SUM(o.item_quantity * i.amount) AS total_amount
+        COUNT(oi.id) AS total_sold,
+        SUM(i.amount) AS total_amount
     ');
 
-    $query->join('tbl_orders o','o.id = oi.order_id');
-    $query->join('tbl_items i','i.id = oi.item_id');
+    $query->join('tbl_orders o', 'o.id = oi.order_id');
+    $query->join('tbl_items i', 'i.id = oi.item_id');
 
-    $query->where('o.status',0);
-    $query->where('o.order_status !=','Cancelled');
+    // Only completed/active orders
+    $query->where('o.status', 0);
+    $query->where('o.order_status !=', 'Cancelled');
 
-    // Date filter
-    if ($fromDate && $toDate) {
-        $query->where('DATE(o.order_date)>=',$fromDate);
-        $query->where('DATE(o.order_date)<=',$toDate);
+    // Date filters
+    if (!empty($fromDate)) {
+        $query->where('DATE(o.order_date) >=', $fromDate);
+    }
+    if (!empty($toDate)) {
+        $query->where('DATE(o.order_date) <=', $toDate);
     }
 
     // Item name search
-    if ($itemName) {
+    if (!empty($itemName)) {
         $query->like('i.name', $itemName);
     }
 
@@ -294,6 +297,7 @@ public function get_sales_report($fromDate = null, $toDate = null, $itemName = n
 
     return $query->get()->getResultArray();
 }
+
 
 public function get_userwise_report($userName = null, $fromDate = null, $toDate = null)
 {
@@ -330,4 +334,71 @@ public function get_userwise_report($userName = null, $fromDate = null, $toDate 
 
     return $query->get()->getResultArray();
 }
+// $userWise = true for user-wise report, false for item-wise
+public function get_sales_report1($fromDate = null, $toDate = null, $search = null, $userWise = false)
+{
+    if ($userWise) {
+        // User-wise report
+        $query = $this->db->table('tbl_orders o');
+        $query->select('
+            u.name AS user_name,
+            u.phone,
+            COUNT(DISTINCT o.id) AS total_orders,
+            SUM(o.item_quantity) AS total_items,
+            SUM(o.item_quantity * i.amount) AS total_amount
+        ');
+        $query->join('tbl_users u', 'u.id = o.user_id');
+        $query->join('tbl_order_items oi', 'oi.order_id = o.id');
+        $query->join('tbl_items i', 'i.id = oi.item_id');
+
+        // Only active/completed orders
+        $query->where('o.status', 0);
+        $query->where('o.order_status !=', 'Cancelled');
+
+        // Date filter
+        if (!empty($fromDate)) $query->where('DATE(o.order_date) >=', $fromDate);
+        if (!empty($toDate)) $query->where('DATE(o.order_date) <=', $toDate);
+
+        // User search
+        if (!empty($search)) $query->like('u.username', $search);
+
+        $query->groupBy('o.user_id');
+        $query->orderBy('SUM(o.item_quantity * i.amount)', 'DESC'); // Highest revenue first
+    } else {
+        // Item-wise report (existing logic)
+        $query = $this->db->table('tbl_order_items oi');
+        $query->select('
+            i.name AS item_name,
+            COUNT(oi.id) AS total_sold,
+            SUM(i.amount) AS total_amount
+        ');
+        $query->join('tbl_orders o', 'o.id = oi.order_id');
+        $query->join('tbl_items i', 'i.id = oi.item_id');
+
+        $query->where('o.status', 0);
+        $query->where('o.order_status !=', 'Cancelled');
+
+        if (!empty($fromDate)) $query->where('DATE(o.order_date) >=', $fromDate);
+        if (!empty($toDate)) $query->where('DATE(o.order_date) <=', $toDate);
+        if (!empty($search)) $query->like('i.name', $search);
+
+        $query->groupBy('oi.item_id');
+        $query->orderBy('SUM(i.amount)', 'DESC');
+    }
+
+    return $query->get()->getResultArray();
+}
+public function get_cart_count($userId)
+{
+    $count = $this->db->table('tbl_cart')
+        ->select('item_id')
+        ->where('user_id', $userId)
+        ->where('status', 0)
+        ->distinct()
+        ->countAllResults();
+
+    return (int) $count;
+}
+
+
 }

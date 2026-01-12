@@ -161,14 +161,14 @@ tbody tr:hover {
 <div class="main">
 
     <div class="header">
-        <h1>Sales Reports</h1>
+        <h1>Itemwise Reports</h1>
     </div>
 
     <!-- Filter Card -->
     <div class="card">
         <h2>Filter Report</h2>
 
-        <form method="get" action="<?= base_url('report_list') ?>" class="filter-form">
+        <form method="get" action="<?= base_url('itemwise_report') ?>" class="filter-form">
             <input type="text" name="item_name"
                    placeholder="Item name"
                    value="<?= esc($itemName ?? '') ?>">
@@ -180,7 +180,15 @@ tbody tr:hover {
                    value="<?= esc($toDate ?? '') ?>">
 
             <button type="submit" class="btn">Search</button>
-            <a href="<?= base_url('report_list') ?>" class="btn btn-reset">Reset</a>
+            <a href="<?= base_url('report_pdf') . '?' . http_build_query($_GET) ?>"
+   class="btn"
+   style="margin-left:10px;">
+   Export PDF
+</a>
+             <button type="button" class="btn btn-reset"
+        onclick="window.location.href='<?= base_url('userwise_report') ?>'">
+    Reset
+</button>
         </form>
     </div>
 

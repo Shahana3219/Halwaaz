@@ -63,7 +63,10 @@ $routes->post('cancel_order', 'myController::cancel_order');
 $routes->get('report_section','myController::report_section');
 $routes->get('itemwise_report','myController::itemwise_report');
 $routes->get('userwise_report','myController::userwise_report');
+$routes->get('report_pdf', 'myController::report_pdf');
+$routes->get('report_pdf1', 'myController::report_pdf1');
 
+$routes->get('itemwise_table','myController::report_pdf');
 
 
 /*

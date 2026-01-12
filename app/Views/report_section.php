@@ -73,39 +73,47 @@ body{
     color:#8d1c6d;
 }
 
-/* Report cards */
-.report-card{
-    background:#fff;
-    border-radius:18px;
-    padding:50px 30px;
-    text-align:center;
-    box-shadow:0 15px 30px rgba(0,0,0,.3);
-    transition:.3s;
-    cursor:pointer;
-    height:100%;
+.report-wrapper{
+    display:flex;
+    gap:50px;          /* high spacing */
+    margin-top:30px;
 }
 
-.report-card:hover{
-    transform:translateY(-10px);
+.report-card{
+    width:210px;       /* small fixed width */
+    background:#ffffff;
+    border:1px solid #e2e6ea;
+    border-radius:6px;
+    padding:16px 14px;
+    text-align:left;   /* professional ERP look */
 }
 
 .report-icon{
-    font-size:64px;
-    margin-bottom:22px;
+    font-size:26px;
+    margin-bottom:8px;
 }
 
 .item-icon{ color:#4b0082; }
 .user-icon{ color:#198754; }
 
 .report-card h4{
+    font-size:14px;
     font-weight:600;
-    margin-bottom:10px;
+    margin:6px 0 4px;
 }
 
 .report-card p{
+    font-size:12px;
     color:#6c757d;
     margin:0;
 }
+
+.report-link{
+    text-decoration:none;
+    color:inherit;
+}
+
+
 
 a.report-link{
     text-decoration:none;
@@ -137,35 +145,29 @@ a.report-link{
     <div class="header">
         <h1>Sales Reports</h1>
     </div>
+    <div class="report-wrapper">
 
-    <!-- REPORT SELECTION -->
-    <div class="row g-4 justify-content-center">
-
-        <div class="col-md-5">
-            <a href="<?= base_url('itemwise_report') ?>" class="report-link">
-                <div class="report-card">
-                    <div class="report-icon item-icon">
-                        <i class="bi bi-box-seam"></i>
-                    </div>
-                    <h4>Item-wise Reports</h4>
-                    <p>Total sold quantity and revenue per item</p>
-                </div>
-            </a>
+    <a href="<?= base_url('itemwise_report') ?>" class="report-link">
+        <div class="report-card">
+            <div class="report-icon item-icon">
+                <i class="bi bi-box-seam"></i>
+            </div>
+            <h4>Item-wise Report</h4>
+            <p>Sales by item</p>
         </div>
+    </a>
 
-        <div class="col-md-5">
-            <a href="<?= base_url('userwise_report') ?>" class="report-link">
-                <div class="report-card">
-                    <div class="report-icon user-icon">
-                        <i class="bi bi-people-fill"></i>
-                    </div>
-                    <h4>User-wise Reports</h4>
-                    <p>Total orders and revenue per user</p>
-                </div>
-            </a>
+    <a href="<?= base_url('userwise_report') ?>" class="report-link">
+        <div class="report-card">
+            <div class="report-icon user-icon">
+                <i class="bi bi-people-fill"></i>
+            </div>
+            <h4>User-wise Report</h4>
+            <p>Sales by user</p>
         </div>
+    </a>
 
-    </div>
+</div>
 
 </div>
 

@@ -191,7 +191,7 @@ th {
             <th>Amount</th>
             <th>Delivery Date</th>
             <th>Delivery Status</th>
-            <th>Action</th>
+            <!-- <th>Action</th> -->
         </tr>
     </thead>
 
@@ -211,12 +211,12 @@ th {
                     <?= esc($order['delivery_status']) ?>
                 </span>
             </td>
-            <td>
+           <!-- <td>
                 <a href="<?= base_url('order_view/'.$order['order_id']) ?>"
                    class="btn btn-sm btn-primary">
                     View
-                </a>
-            </td>
+                </a> 
+            </td> -->
         </tr>
     <?php endforeach; ?>
     </tbody>

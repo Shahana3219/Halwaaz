@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\MyModel;
-
+use TCPDF;
 
 class MyController extends Controller
 {
@@ -165,27 +165,23 @@ public function home()
 
     $userid = session()->get('user_id');
     $cartItemIds = [];
-    $cartCount = 0;
-     $orders = $this->MyModel->get_user_orders($userid);
+    $cartCount = $this->MyModel->get_cart_count($userid);  // updated
+    $orders = $this->MyModel->get_user_orders($userid);
     $ordersCount = count($orders);
 
-    $cart_items = $this->MyModel->select_data('tbl_cart','item_id,quantity',
-        [
-            'user_id' => $userid,
-            'status'=>0
-        ]);
-
-    if (!empty($cart_items)) {
-        $cartItemIds = array_column($cart_items, 'item_id');
-        $cartCount = array_sum(array_column($cart_items, 'quantity'));
-    }
+    $cart_items = $this->MyModel->select_data('tbl_cart', 'item_id', [
+        'user_id' => $userid,
+        'status'  => 0
+    ]);
+    $cartItemIds = !empty($cart_items) ? array_column($cart_items, 'item_id') : [];
 
     return view('home', [
         'cartItemIds' => $cartItemIds,
         'cartCount'   => $cartCount,
-        'ordersCount'=>$ordersCount
+        'ordersCount' => $ordersCount
     ]);
 }
+
 
                             //LOGOUT
 public function logout(){
@@ -435,20 +431,19 @@ if ($redirect) {
     $categories=$this->MyModel->select_data('tbl_category','id,name',['status'=>0]);
 
     $cartItemIds = [];
-    $cartCount=0;
+    $cartCount = $this->MyModel->get_cart_count($userid);
      $orders = $this->MyModel->get_user_orders($userid);
     $ordersCount = count($orders);
     if($userid)
         {
           $cart_items=$this->MyModel->select_data('tbl_cart',
-          'item_id,quantity',
+          'item_id',
           [
             'user_id'=>$userid,
             'status'  => 0 
           ]);  
     if (!empty($cart_items)) {
-    $cartItemIds=array_column($cart_items,'item_id');  //taking a column 'item_id' from tbl_cart
-    $cartCount=array_sum(array_column($cart_items,'quantity'));
+    $cartItemIds = !empty($cart_items) ? array_column($cart_items, 'item_id') : [];
 }
         }
     return view('category_items',
@@ -463,41 +458,43 @@ if ($redirect) {
     ]);
 }
 
-                    //CART
-public function cart(){
+ //CART
+public function cart()
+{
+    // Check if user is logged in
     $redirect = $this->checkLogin();
-
-
-if ($redirect) {
-    return $redirect;
-}
-
-     $session = session();
-     $userid = session()->get('user_id');
-    $cartItemIds = [];
-    $cartCount = 0;
- $orders = $this->MyModel->get_user_orders($userid);
-    $ordersCount = count($orders);
-    $cart_items = $this->MyModel->select_data('tbl_cart','item_id,quantity',
-        [
-            'user_id' => $userid,
-            'status'  => 0 
-        ]);
-
-    if (!empty($cart_items)) {
-        $cartItemIds = array_column($cart_items, 'item_id');
-        $cartCount = array_sum(array_column($cart_items, 'quantity'));
+    if ($redirect) {
+        return $redirect;
     }
- 
-     $cart=$this->MyModel->user_cartitems($userid);
-        return view('cart',
-        [
-            'cart'=>$cart,
-            'cartCount' => $cartCount,      
-            'ordersCount'=>$ordersCount,
-            'cartItemIds' => $cartItemIds
-        ]);
+
+    $session = session();
+    $userid = $session->get('user_id');
+
+    // Get total cart count using your helper method
+    $cartCount = $this->MyModel->get_cart_count($userid);
+
+    // Get user's orders count
+    $orders = $this->MyModel->get_user_orders($userid);
+    $ordersCount = count($orders);
+
+    // Get unique item IDs in the cart
+    $cart_items = $this->MyModel->select_data('tbl_cart', 'item_id', [
+        'user_id' => $userid,
+        'status'  => 0
+    ]);
+    $cartItemIds = !empty($cart_items) ? array_column($cart_items, 'item_id') : [];
+
+    // Get detailed cart items (for display)
+    $cart = $this->MyModel->user_cartitems($userid);
+
+    return view('cart', [
+        'cart'        => $cart,
+        'cartCount'   => $cartCount,
+        'ordersCount' => $ordersCount,
+        'cartItemIds' => $cartItemIds
+    ]);
 }
+
 
 
                         //ADD TO CART
@@ -825,19 +822,14 @@ public function my_orders() {
 
     // Cart count
     $cartItemIds=[];
-    $cartCount=0;
-    $cart_items = $this->MyModel->select_data('tbl_cart', 'item_id,quantity', 
+    $cartCount = $this->MyModel->get_cart_count($userId);
+    $cart_items = $this->MyModel->select_data('tbl_cart', 'item_id', 
     [
         'user_id' => $userId,   
         'status'  => 0 
     ]
     );
 
-    if (!empty($cart_items)) 
-    {
-        $cartItemIds = array_column($cart_items, 'item_id');
-        $cartCount = array_sum(array_column($cart_items, 'quantity'));
-    }
 
     return view('my_orders', 
     [
@@ -863,18 +855,15 @@ public function order_details($orderId)
     $ordersCount=count($orders);
      // Cart info
     $cartItemIds=[];
-    $cartCount=0;
-    $cart_items=$this->MyModel->select_data('tbl_cart', 'item_id,quantity', 
+    $cartCount = $this->MyModel->get_cart_count($userId);
+    $cart_items=$this->MyModel->select_data('tbl_cart', 'item_id', 
     [
         'user_id'=>$userId,   
         'status'=>0 
     ]
     );
 
-    if (!empty($cart_items)) {
-        $cartItemIds = array_column($cart_items, 'item_id');
-        $cartCount = array_sum(array_column($cart_items, 'quantity'));
-    }
+    
 
     return view('order_details', [
         'order'=>$order,
@@ -969,4 +958,83 @@ public function report_section()
 {
     return view('report_section');
 }
+public function report_pdf()
+{
+    $itemName = $this->request->getGet('item_name');
+    $fromDate = $this->request->getGet('from_date');
+    $toDate   = $this->request->getGet('to_date');
+
+    // Fetch data
+    $reports = $this->MyModel->get_sales_report($fromDate, $toDate, $itemName);
+
+    // Current date
+    $reportDate = date('d-m-Y H:i:s');
+
+    // Totals (optional, view can also compute this)
+    $totals = [
+        'totalSold'    => array_sum(array_column($reports, 'total_sold')),
+        'totalRevenue' => array_sum(array_column($reports, 'total_amount')),
+    ];
+
+    // Load the table view into a variable
+    $html = view('itemwise_table', [
+        'reports'    => $reports,
+        
+    ]);
+
+    // TCPDF setup
+    $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
+    $pdf->SetCreator('Halwaaz');
+    $pdf->SetAuthor('Halwaaz Admin');
+    $pdf->SetTitle('Itemwise Report');
+    $pdf->SetMargins(10, 10, 10);
+    $pdf->SetAutoPageBreak(true, 15);
+    $pdf->AddPage();
+
+    $pdf->writeHTML($html, true, false, true, false, '');
+    $pdf->Output('halwaaz_itemwise_report.pdf', 'D'); // Download
+}
+
+public function report_pdf1()
+{
+    $userName = $this->request->getGet('user_name');
+    $fromDate = $this->request->getGet('from_date');
+    $toDate   = $this->request->getGet('to_date');
+
+    // Fetch data (user-wise)
+    $reports = $this->MyModel->get_sales_report1(
+        $fromDate,
+        $toDate,
+        $userName,
+        true // user-wise flag
+    );
+
+    // Optional totals (view can also calculate)
+    $totals = [
+        'totalOrders'  => array_sum(array_column($reports, 'total_orders')),
+        'totalItems'   => array_sum(array_column($reports, 'total_items')),
+        'totalRevenue' => array_sum(array_column($reports, 'total_amount')),
+    ];
+
+    // Load USERWISE view
+    $html = view('userwise_table', [
+        'reports' => $reports,
+        'totals'  => $totals
+    ]);
+
+    // TCPDF setup
+    $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
+    $pdf->SetCreator('Halwaaz');
+    $pdf->SetAuthor('Halwaaz Admin');
+    $pdf->SetTitle('Userwise Sales Report');
+    $pdf->SetMargins(10, 10, 10);
+    $pdf->SetAutoPageBreak(true, 15);
+    $pdf->AddPage();
+
+    // Render PDF
+    $pdf->writeHTML($html, true, false, true, false, '');
+    $pdf->Output('halwaaz_userwise_report.pdf', 'D');
+}
+
+
 }
