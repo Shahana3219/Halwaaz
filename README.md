@@ -90,4 +90,59 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 
 ## Running CodeIgniter Tests
 
+
+Halwaaz – E-commerce Web Application
+
+Halwaaz is a PHP-based e-commerce web application built using CodeIgniter 4, designed to manage products, categories, and customer orders efficiently.
+
+The application includes an Admin panel where administrators can create and manage product categories, add items, update stock levels, and control product availability. Products can be marked as In-Stock or Out-of-Stock, ensuring accurate inventory visibility.
+
+Users can browse products based on categories, perform filtered searches, and view item availability in real time. The platform supports essential e-commerce features such as a shopping cart, order management, and a structured checkout workflow.
+
+Halwaaz follows the MVC architecture, includes role-based access control, and is suitable for small to medium-scale online retail systems.
+
+Key Features
+
+Admin dashboard for category and product management
+
+Category-wise product listing
+
+Filtered product search
+
+In-stock / Out-of-stock management
+
+Shopping cart functionality
+
+Order management system
+
+Secure authentication and role-based access
+
+Clean MVC architecture using CodeIgniter 4
+
+Used Versions
+
+PHP: 8.1
+
+Framework: CodeIgniter 4.x
+
+Database: MySQL 8.0
+
+Web Server: Apache 2.4 (XAMPP)
+
+Frontend Technologies:
+
+HTML5
+
+CSS3
+
+Bootstrap 5
+
+JavaScript (ES6)
+
+jQuery
+
+Version Control: Git
+
+Development Environment: XAMPP (Windows)
+
 Information on running the CodeIgniter test suite can be found in the [README.md](tests/README.md) file in the tests directory.
