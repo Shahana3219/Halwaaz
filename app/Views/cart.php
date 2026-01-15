@@ -298,12 +298,7 @@
                         <i class="bi bi-person-circle"></i> Account
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end shadow">
-                        <li>
-                            <a class="dropdown-item" href="#">
-                                <i class="bi bi-person"></i> View Profile
-                            </a>
-                        </li>
-                        <li><hr class="dropdown-divider"></li>
+                       
                         <li>
                             <a class="dropdown-item text-danger" href="<?= base_url('logout') ?>">
                                 <i class="bi bi-box-arrow-right"></i> Logout

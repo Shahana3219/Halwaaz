@@ -152,7 +152,78 @@ public function admin_dashboard(){
         return redirect()->to('/')
             ->with('error', 'Unauthorized access');
     }
-    return view('admin_dashboard');
+    
+    // Get total items count
+    $totalItems = $this->MyModel->select_data('tbl_items', 'COUNT(*) as count', ['status' => 0]);
+    $totalItemsCount = $totalItems[0]['count'] ?? 0;
+    
+    // Get new items added (last 30 days)
+    $newItems = $this->MyModel->select_data('tbl_items', 'COUNT(*) as count', ['status' => 0]);
+    $newItemsCount = $newItems[0]['count'] ?? 0;
+    
+    // Get total categories
+    $totalCategories = $this->MyModel->select_data('tbl_category', 'COUNT(*) as count', ['status' => 0]);
+    $totalCategoriesCount = $totalCategories[0]['count'] ?? 0;
+    
+    // Get sales report data
+    $salesData = $this->MyModel->get_sales_report();
+    
+    // Calculate total sales amount
+    $totalSalesAmount = 0;
+    $salesByItem = [];
+    if (!empty($salesData)) {
+        foreach ($salesData as $sale) {
+            $totalSalesAmount += $sale['total_amount'];
+            $salesByItem[] = [
+                'name' => $sale['item_name'],
+                'sold' => $sale['total_sold'],
+                'amount' => $sale['total_amount']
+            ];
+        }
+    }
+    
+    // Get all orders for statistics (including cancelled ones)
+    $allOrders = $this->MyModel->select_data('tbl_orders', 'id, total_amount, order_status, order_date, status', []);
+    
+    // Calculate profit/loss (assuming 30% profit margin on sales)
+    $totalProfit = $totalSalesAmount * 0.30;
+    
+    // Calculate loss from cancelled orders (status = 1 or order_status = 'Cancelled')
+    $totalLoss = 0;
+    $cancelledOrders = 0;
+    $completedOrders = 0;
+    $pendingOrders = 0;
+    
+    if (!empty($allOrders)) {
+        foreach ($allOrders as $order) {
+            $status = strtolower(trim($order['order_status'] ?? ''));
+            $isCancelled = ($order['status'] == 1) || (strpos($status, 'cancel') !== false);
+            
+            if ($isCancelled) {
+                $cancelledOrders++;
+                $totalLoss += (float)($order['total_amount'] ?? 0);
+            } elseif (strpos($status, 'placed') !== false || strpos($status, 'complet') !== false || strpos($status, 'deliver') !== false) {
+                $completedOrders++;
+            } elseif (strpos($status, 'pend') !== false) {
+                $pendingOrders++;
+            }
+        }
+    }
+    $cancelledOrdersCount = $cancelledOrders;
+    
+    return view('admin_dashboard', [
+        'totalItems' => $totalItemsCount,
+        'newItems' => $newItemsCount,
+        'totalCategories' => $totalCategoriesCount,
+        'totalSales' => $totalSalesAmount,
+        'totalProfit' => $totalProfit,
+        'totalLoss' => $totalLoss,
+        'completedOrders' => $completedOrders,
+        'pendingOrders' => $pendingOrders,
+        'cancelledOrders' => $cancelledOrdersCount,
+        'salesByItem' => $salesByItem,
+        'allOrders' => $allOrders
+    ]);
 }
 
 
@@ -929,17 +1000,22 @@ public function cancel_order()
 
 public function orders_list()
 {
-    $itemName=$this->request->getGet('item_name');
-    $delDate=$this->request->getGet('del_date');
-     
-    $orders=$this->MyModel->get_orders_list($itemName, $delDate);
-    
-    return view('orders_list', 
-    [
-        'orders' => $orders
-    ]
-    );
+    $itemName    = $this->request->getGet('item_name');
+    $delDate     = $this->request->getGet('del_date');
+    $orderStatus = $this->request->getGet('order_status'); // optional filter
+
+    $orders = $this->MyModel->get_orders_list($itemName, $delDate, $orderStatus);
+
+    return view('orders_list', [
+        'orders' => $orders,
+        'selected_status' => $orderStatus, // to keep selected in dropdown
+        'itemName' => $itemName,
+        'delDate' => $delDate
+    ]);
 }
+
+
+
 
 public function itemwise_report()
 {

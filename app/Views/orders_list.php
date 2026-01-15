@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Halwaaz | Orders List</title>
+<title>Halwaaz | Items</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -71,12 +71,17 @@ body {
     color: #8d1c6d;
 }
 
-/* Orders Table */
+/* Table */
 .table-card {
     background: #fff;
-    border-radius: 18px;
     padding: 25px;
+    border-radius: 18px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.table-card h2 {
+    color: #4b0082;
+    margin-bottom: 20px;
 }
 
 table {
@@ -85,167 +90,227 @@ table {
 }
 
 th, td {
-    padding: 14px;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
     text-align: left;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
+    vertical-align: middle;
 }
 
 th {
-    background: #f3f0ff;
-    color: #4b0082;
+    background: #f3e8ff;
 }
 
-.badge {
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 500;
+.item-img {
+    width: 60px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
 }
 
-.badge-placed { background:#dbeafe; color:#1e40af; }
-.badge-cancelled { background:#fee2e2; color:#991b1b; }
-.badge-delivered { background:#dcfce7; color:#166534; }
-
-.action-btn {
-    padding: 6px 10px;
-    border-radius: 8px;
+.action {
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #fff;
     font-size: 13px;
+    text-decoration: none;
+}
+/* DELETE MODAL */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none; /* ✅ VERY IMPORTANT */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: center;
+}
+
+.modal-header {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.modal-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-close {
+    background: #aaa;
+    color: #fff;
     border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
-.view-btn {
-    background:#4b0082;
-    color:#fff;
+.dlt-btn {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+/* FILTER BAR */
+.filter-bar {
+    background: #f8f3ff;
+    padding: 16px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
 }
 
-.cancel-btn {
-    background:#dc2626;
-    color:#fff;
+.filter-bar input,
+.filter-bar select {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
 }
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+    outline: none;
+    border-color: #8a2be2;
+}
+
+.filter-bar .btn-filter {
+    background: #8a2be2;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.filter-bar .btn-filter:hover {
+    background: #6a1bb2;
+}
+.btn-reset {
+    background: #13c4a7ff; /* New color, e.g., coral */
+    color: #691a1aff;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.25s;
+}
+
+.btn-reset:hover {
+    background: #80a425ff; /* Slightly darker on hover */
+}
+
+.edit { background: #4caf50; }
+.delete { background: #e53935; }
 </style>
 </head>
-
 <body>
 
 <!-- Sidebar -->
 <div class="sidebar">
     <h2>Halwaaz Admin</h2>
     <div class="menu">
-        <a href="<?=base_url('/admin_dashboard')?>">Dashboard</a>
-        <a href="<?=base_url('/add_category')?>">Add Category</a>
-        <a href="<?=base_url('/add_item')?>">Add Items</a>
-        <a href="<?=base_url('/orders_list')?>">Orders</a>
-        <a href="<?=base_url('/items_list')?>">Items List</a>
-         <a href="<?= base_url('/report_section') ?>">Reports</a>
-        <a href="<?=base_url('/logout')?>">Logout</a>
+        <a href="<?= base_url('/admin_dashboard') ?>">Dashboard</a>
+        <a href="<?= base_url('/add_category') ?>">Add Category</a>
+        <a href="<?= base_url('/add_item') ?>">Add Items</a>
+        <a href="<?= base_url('/orders_list') ?>">Orders</a>
+        <a href="<?= base_url('/items_list') ?>">Items List</a>
+        <a href="<?= base_url('/report_section') ?>">Reports</a>
+        <a href="<?= base_url('/logout') ?>">Logout</a>
     </div>
 </div>
 
-<!-- Main -->
+<!-- Main Content -->
 <div class="main">
 
+    <!-- Header -->
     <div class="header">
-        <h1>Orders List</h1>
+        <h1>Orders Management</h1>
     </div>
 
+    <!-- Table Card -->
     <div class="table-card">
 
-       <table class="table table-bordered table-striped">
-    <thead class="table-dark">
-    <form method="get" action="<?= base_url('orders_list') ?>" style="margin-bottom:15px; display:flex; gap:10px; align-items:center;">
+        <h2>Orders List</h2>
 
-    <!-- Item Name Search -->
-    <input type="text"
-           name="item_name"
-           placeholder="Item name"
-           value="<?= esc($_GET['item_name'] ?? '') ?>"
-           style="padding:8px;width:220px;border-radius:8px;border:1px solid #ccc;">
+        <!-- FILTER BAR -->
+        <form method="get" class="filter-bar">
+            <input type="text" name="item_name" placeholder="Item Name"
+                   value="<?= esc($itemName ?? '') ?>">
 
-    <!-- Delivery Date Search -->
-    <input type="date"
-           name="del_date"
-           value="<?= esc($_GET['del_date'] ?? '') ?>"
-           style="padding:8px;border-radius:8px;border:1px solid #ccc;">delivery date
+            <input type="date" name="del_date"
+                   value="<?= esc($delDate ?? '') ?>">
 
-    <button type="submit" class="action-btn view-btn">
-        Search
-    </button>
-     <!-- CLEAR BUTTON -->
-    <a href="<?= base_url('orders_list') ?>"
-       class="action-btn cancel-btn"
-       style="text-decoration:none;">
-        Clear
-    </a>
-</form>
+            <select name="order_status">
+                <option value="">All Status</option>
+                <option value="Placed" <?= ($selected_status ?? '') === 'Placed' ? 'selected' : '' ?>>
+                    Placed
+                </option>
+                <option value="Cancelled" <?= ($selected_status ?? '') === 'Cancelled' ? 'selected' : '' ?>>
+                    Cancelled
+                </option>
+            </select>
 
+            <button type="submit" class="btn-filter">Filter</button>
+            <a href="<?= base_url('orders_list') ?>" class="btn-reset">Reset</a>
+        </form>
 
-        <tr>
-            <th>Order ID</th>
-            <th>User</th>
-            <th>Phone</th>
-            <th>Item</th>
-            <th>Address</th>
-            <th>Qty</th>
-            <th>Amount</th>
-            <th>Delivery Date</th>
-            <th>Delivery Status</th>
-            <!-- <th>Action</th> -->
-        </tr>
-    </thead>
-
-    <tbody>
-    <?php foreach ($orders as $order): ?>
-        <tr>
-            <td>#<?= $order['order_id'] ?></td>
-            <td><?= esc($order['user_name']) ?><br><?= esc($order['address']) ?></td>
-            <td><?= esc($order['phone']) ?></td>
-            <td><?= esc($order['item_name']) ?></td>
-            <td><?= esc($order['address']) ?></td>
-            <td><?= $order['item_quantity'] ?></td>
-            <td>₹<?= number_format($order['total_amount'] * $order['item_quantity'], 2) ?></td>
-            <td><?= date('d M Y', strtotime($order['del_date'])) ?></td>
-            <td>
-                <span class="badge bg-info">
-                    <?= esc($order['delivery_status']) ?>
-                </span>
-            </td>
-           <!-- <td>
-                <a href="<?= base_url('order_view/'.$order['order_id']) ?>"
-                   class="btn btn-sm btn-primary">
-                    View
-                </a> 
-            </td> -->
-        </tr>
-    <?php endforeach; ?>
-    </tbody>
-</table>
+        <!-- TABLE -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Item</th>
+                    <th>Order Date</th>
+                    <th>Delivery Date</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (!empty($orders)): ?>
+                    <?php foreach ($orders as $order): ?>
+                        <tr>
+                            <td><?= esc($order['id']) ?></td>
+                            <td><?= esc($order['user_name']) ?></td>
+                            <td><?= esc($order['item_name']) ?></td>
+                            <td><?= esc($order['order_date']) ?></td>
+                            <td><?= esc($order['del_date']) ?></td>
+                            <td>₹<?= number_format($order['total_amount'], 2) ?></td>
+                            <td><?= esc($order['order_status']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="7" style="text-align:center;">No orders found</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
 
     </div>
-
 </div>
 
-<script>
-function cancelOrder(orderId)
-{
-    if (!confirm('Cancel this order?')) return;
-
-    fetch("<?= base_url('admin-cancel-order') ?>", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "X-Requested-With": "XMLHttpRequest"
-        },
-        body: JSON.stringify({ order_id: orderId })
-    })
-    .then(res => res.json())
-    .then(data => {
-        alert(data.message);
-        location.reload();
-    });
-}
-</script>
+</body>
 
 </body>
 </html>

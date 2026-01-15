@@ -211,54 +211,31 @@ public function get_order_summary($orderId)
         ->get()
         ->getRowArray();
 }
-
-// ALL ORDERS LIST (Admin / Seller view)
-public function get_orders_list($itemName,$delDate)
+public function get_orders_list($itemName = null, $delDate = null, $orderStatus = null)
 {
-    $query = $this->db->table('tbl_order_items oi');
+    $builder = $this->db->table('tbl_orders o');
+    $builder->select('o.id, o.order_date, o.del_date, o.total_amount, o.order_status, u.name as user_name, i.name as item_name');
+    $builder->join('tbl_items i', 'o.item_id = i.id', 'left');
+    $builder->join('tbl_users u', 'o.user_id = u.id', 'left');
 
-    $query->select('
-        o.id AS order_id,
-        o.order_date,
-        o.del_date,
-        o.order_status,
-        o.total_amount,
-        o.item_quantity,
-
-        u.name AS user_name,
-        u.phone,
-        u.address,
-
-        i.name  AS item_name,
-        i.image AS item_image,
-        ds.name AS delivery_status
-    ');
-
-
-    $query->join('tbl_orders o','o.id=oi.order_id');
-    $query->join('tbl_users u','u.id=o.user_id');
-    $query->join('tbl_items i','i.id=oi.item_id');
-    $query->join('tbl_del_status ds','ds.id = o.del_status','left');
-
-    $query->where('o.status', 0);
-
-//  Item name search
+    // Filters
     if (!empty($itemName)) {
-        $query->like('i.name', $itemName);
+        $builder->like('i.name', $itemName);
     }
-
-    //  Delivery date search
     if (!empty($delDate)) {
-        $query->where('o.del_date', $delDate);
+        $builder->where('DATE(o.del_date)', $delDate);
     }
-    // LATEST FIRST
-    $query->orderBy('o.id', 'DESC');
+    if (!empty($orderStatus)) {
+        $builder->like('o.order_status', $orderStatus);
+    }
 
-    // DEBUGGING
-    log_message('debug', 'Orders SQL: ' . $this->db->getLastQuery());
+    $builder->orderBy('o.order_date', 'ASC');
 
-    return $query->get()->getResultArray();
+    return $builder->get()->getResultArray();
 }
+
+
+
 
 
           //SALE REPORT PER ITEM
