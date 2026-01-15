@@ -410,12 +410,20 @@ public function delete_item(){
             ->with('error', 'Unauthorized access');
     }
      $id=$this->request->getPost('id');
+       if (!$id) {
+        return $this->response->setJSON([
+            'status' => 'error',
+            'message' => 'Invalid ID'
+        ]);
+    }
 
   $this->MyModel->update_data('tbl_items',
   ['status'=>1],
   ['id'=>$id]
 );
-return redirect()->back();
+  return $this->response->setJSON([
+        'status' => 'success'
+    ]);
 }
                     //SEEING ITEMS BASED ON SELECTED CATEGORY
 public function items_by_category($categoryId)
@@ -427,7 +435,22 @@ if ($redirect) {
 }
 
     $userid = session()->get('user_id');
-    $items=$this->MyModel->get_item_by_category($categoryId);
+
+
+
+$search     = $this->request->getGet('search');
+$priceSort = $this->request->getGet('price_sort');
+$qtySort   = $this->request->getGet('qty_sort');
+$instock   = $this->request->getGet('instock');
+
+$items = $this->MyModel->get_filtered_items(
+    $search,
+    $categoryId,
+    $priceSort,
+    $qtySort,
+    $instock
+);
+
     $categories=$this->MyModel->select_data('tbl_category','id,name',['status'=>0]);
 
     $cartItemIds = [];
@@ -808,7 +831,8 @@ $db = \Config\Database::connect();
  return $this->response->setJSON(
     [
         'status'  => 'success',
-        'message' => 'Order placed successfully'
+        'message' => 'Order placed successfully',
+        'order_id' => $orderId
     ]
     );
 }

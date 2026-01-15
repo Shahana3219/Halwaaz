@@ -17,15 +17,16 @@
 <style>
 body {
     font-family: 'Poppins', sans-serif;
-    background: #f7f7f7;
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);
     margin: 0;
+    color: #333;
 }
 
 /* ================= SPLASH SCREEN ================= */
 #splash-screen {
     position: fixed;
     inset: 0;
-    background: linear-gradient(135deg, #d9c7c7ff, #ff0844);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8c42 50%, #ffd93d 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,12 +43,14 @@ body {
     width: 120px;
     margin-bottom: 20px;
     animation: logoPop 1.5s ease;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.2));
 }
 
 .splash-content h2 {
-    font-size: 28px;
+    font-size: 32px;
     margin: 0;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 .container {
     padding-left: 8px;
@@ -56,35 +59,77 @@ body {
 
 .splash-content p {
     margin-top: 8px;
-    font-size: 14px;
-    opacity: 0.9;
+    font-size: 16px;
+    opacity: 0.95;
+    font-weight: 300;
 }
 
 /* Splash animations */
 @keyframes logoPop {
     0% { transform: scale(0.5); opacity: 0; }
-    60% { transform: scale(1.1); opacity: 1; }
+    60% { transform: scale(1.15); opacity: 1; }
     100% { transform: scale(1); }
 }
 
 @keyframes splashFade {
     0% { opacity: 1; }
     80% { opacity: 1; }
-    100% { opacity: 0; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    background: linear-gradient(90deg, #ffffff 0%, #f8f9fa 100%) !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+}
+
+.navbar-brand {
+    font-size: 24px !important;
+    background: linear-gradient(135deg, #ff6b6b, #ff8c42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: #555 !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #ff8c42 !important;
+}
+
+.nav-link i {
+    margin-right: 6px;
 }
 
 /* ================= HERO ================= */
 .hero {
-    height: 380px;
-    background: url("<?= base_url('public/images/hero.jpg') ?>") center/cover no-repeat;
+    height: 450px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%), url("<?= base_url('public/images/hero.jpg') ?>") center/cover;
+    background-blend-mode: overlay;
     position: relative;
+    overflow: hidden;
 }
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255,107,107,0.15), transparent),
+                radial-gradient(circle at 80% 80%, rgba(255,140,66,0.15), transparent);
+}
+
 .hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0,0,0,0.35);
 }
+
 .hero-text {
     position: relative;
     height: 100%;
@@ -94,28 +139,68 @@ body {
     align-items: center;
     color: #fff;
     text-align: center;
-    z-index: 1;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    letter-spacing: -1px;
+}
+
+.hero-text p {
+    font-size: 20px;
+    opacity: 0.95;
+    font-weight: 300;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 /* ================= CATEGORY CARDS ================= */
 
+.category-card {
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
 .category-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-12px) scaleX(1.02);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.2);
 }
+
 .category-card img {
-    height: 220px;
+    height: 240px;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
 .category-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent);
     display: flex;
     align-items: flex-end;
-    padding: 18px;
+    padding: 24px;
     color: #fff;
-
+    transition: all 0.4s ease;
 }
+
+.category-overlay h6 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
 .categoryDropdown {
     position: absolute;
     background: #fff;
@@ -125,11 +210,35 @@ body {
     min-width: 200px;
     display: block;
     z-index: 999;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
 html, body {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
+
+/* Smooth fade-in animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.category-card, .product-card, .feature-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.category-card { animation-delay: 0.1s; }
+.category-card:nth-child(2) { animation-delay: 0.2s; }
+.category-card:nth-child(3) { animation-delay: 0.3s; }
+.category-card:nth-child(4) { animation-delay: 0.4s; }
 
 /* TRUE EDGE-TO-EDGE CATEGORY GRID */
 .category-row {
@@ -138,15 +247,11 @@ html, body {
 }
 
 .category-row > [class*="col-"] {
-    padding: 6px; /* space BETWEEN cards only */
-}
-.category-card {
-    border-radius: 20px;
+    padding: 8px;
 }
 
-.category-overlay h6 {
-    font-size: 1rem;
-    font-weight: 600;
+.category-card {
+    border-radius: 18px;
 }
 
 </style>
@@ -273,146 +378,272 @@ html, body {
   <div class="container">
     <div class="row text-center g-4">
       <div class="col-md-3">
-        <i class="bi bi-award fs-1 text-danger"></i>
-        <h6 class="mt-3 fw-semibold">Premium Quality</h6>
-        <p class="small text-muted">Only the finest ingredients</p>
+        <div class="feature-card p-4 rounded-3" style="background: linear-gradient(135deg, #ffe66d 0%, #ffd93d 100%); transition: all 0.3s ease;">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-award fs-1" style="color: #fff;"></i>
+          </div>
+          <h6 class="mt-3 fw-semibold" style="color: #fff;">Premium Quality</h6>
+          <p class="small" style="color: rgba(255,255,255,0.9);">Only the finest ingredients</p>
+        </div>
       </div>
       <div class="col-md-3">
-        <i class="bi bi-clock-history fs-1 text-danger"></i>
-        <h6 class="mt-3 fw-semibold">Fresh Daily</h6>
-        <p class="small text-muted">Prepared every morning</p>
+        <div class="feature-card p-4 rounded-3" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); transition: all 0.3s ease;">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-clock-history fs-1" style="color: #fff;"></i>
+          </div>
+          <h6 class="mt-3 fw-semibold" style="color: #fff;">Fresh Daily</h6>
+          <p class="small" style="color: rgba(255,255,255,0.9);">Prepared every morning</p>
+        </div>
       </div>
       <div class="col-md-3">
-        <i class="bi bi-truck fs-1 text-danger"></i>
-        <h6 class="mt-3 fw-semibold">Fast Delivery</h6>
-        <p class="small text-muted">Doorstep delivery</p>
+        <div class="feature-card p-4 rounded-3" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6b9d 100%); transition: all 0.3s ease;">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-truck fs-1" style="color: #fff;"></i>
+          </div>
+          <h6 class="mt-3 fw-semibold" style="color: #fff;">Fast Delivery</h6>
+          <p class="small" style="color: rgba(255,255,255,0.9);">Doorstep delivery in 3 days</p>
+        </div>
       </div>
       <div class="col-md-3">
-        <i class="bi bi-heart fs-1 text-danger"></i>
-        <h6 class="mt-3 fw-semibold">Loved by Customers</h6>
-        <p class="small text-muted">1000+ happy orders</p>
+        <div class="feature-card p-4 rounded-3" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); transition: all 0.3s ease;">
+          <div class="feature-icon mb-3">
+            <i class="bi bi-heart fs-1" style="color: #fff;"></i>
+          </div>
+          <h6 class="mt-3 fw-semibold" style="color: #fff;">Loved by Customers</h6>
+          <p class="small" style="color: rgba(255,255,255,0.9);">1000+ happy orders</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <style>
+    .feature-card {
+      cursor: pointer;
+      transform: translateY(0);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+    }
+    
+    .feature-icon {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
 </section>
-<section class="py-5 bg-light">
+<section class="py-5" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
   <div class="container">
-    <h4 class="text-center mb-4 fw-semibold">Popular Picks</h4>
+    <div class="text-center mb-5">
+      <h4 class="fw-semibold" style="font-size: 32px; color: #333;">Popular Picks</h4>
+      <p class="text-muted">Our most loved halwa flavors</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-4">
+        <div class="product-card" style="border-radius: 16px; overflow: hidden; background: white; box-shadow: 0 8px 24px rgba(0,0,0,0.1); transition: all 0.4s ease; cursor: pointer;">
+          <div class="product-image-wrapper" style="height: 260px; overflow: hidden; background: #f0f0f0; position: relative;">
+            <img src="<?= base_url('public/images/halwa1.jpg') ?>" class="w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
+            <div style="position: absolute; top: 12px; right: 12px; background: linear-gradient(135deg, #ff6b6b, #ff8c42); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Top Seller</div>
+          </div>
+          <div class="card-body text-center p-4">
+            <h6 class="fw-bold" style="font-size: 18px; color: #333;">Classic Ghee Halwa</h6>
+            <p class="text-muted small mb-3">Best seller - Authentic taste</p>
+            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 12px;">
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-half" style="color: #ffc107;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="product-card" style="border-radius: 16px; overflow: hidden; background: white; box-shadow: 0 8px 24px rgba(0,0,0,0.1); transition: all 0.4s ease; cursor: pointer;">
+          <div class="product-image-wrapper" style="height: 260px; overflow: hidden; background: #f0f0f0; position: relative;">
+            <img src="<?= base_url('public/images/halwa2.jpg') ?>" class="w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
+            <div style="position: absolute; top: 12px; right: 12px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Favorite</div>
+          </div>
+          <div class="card-body text-center p-4">
+            <h6 class="fw-bold" style="font-size: 18px; color: #333;">Dry Fruit Halwa</h6>
+            <p class="text-muted small mb-3">Customer favorite - Premium</p>
+            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 12px;">
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="product-card" style="border-radius: 16px; overflow: hidden; background: white; box-shadow: 0 8px 24px rgba(0,0,0,0.1); transition: all 0.4s ease; cursor: pointer;">
+          <div class="product-image-wrapper" style="height: 260px; overflow: hidden; background: #f0f0f0; position: relative;">
+            <img src="<?= base_url('public/images/halwa3.jpg') ?>" class="w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
+            <div style="position: absolute; top: 12px; right: 12px; background: linear-gradient(135deg, #f093fb, #f5576c); color: white; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">Limited</div>
+          </div>
+          <div class="card-body text-center p-4">
+            <h6 class="fw-bold" style="font-size: 18px; color: #333;">Exotic Mix Halwa</h6>
+            <p class="text-muted small mb-3">Limited edition - Special blend</p>
+            <div style="display: flex; gap: 8px; justify-content: center; margin-top: 12px;">
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+              <i class="bi bi-star" style="color: #ffc107;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .product-card {
+      transform: translateY(0) scale(1);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.15) !important;
+    }
+    
+    .product-card:hover .product-image-wrapper img {
+      transform: scale(1.1);
+    }
+  </style>
+</section>
+<section class="py-5" style="background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h4 class="fw-semibold" style="font-size: 32px; color: #333;">What Our Customers Say</h4>
+      <p class="text-muted">Join thousands of happy customers</p>
+    </div>
 
     <div class="row g-4">
       <div class="col-md-4">
-        <div class="card border-0 shadow-sm">
-          <img src="<?= base_url('public/images/halwa1.jpg') ?>" class="card-img-top">
-          <div class="card-body text-center">
-            <h6 class="fw-semibold">Classic Ghee Halwa</h6>
-            <p class="text-muted small">Best seller</p>
+        <div class="p-4 rounded-3" style="background: white; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-left: 4px solid #ff6b6b;">
+          <div style="display: flex; gap: 2px; margin-bottom: 12px;">
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
           </div>
+          <p class="small text-muted mb-3" style="font-style: italic;">"Best halwa I've ever tasted. Fresh and rich!"</p>
+          <h6 class="fw-bold mb-0" style="color: #333;">Ayesha Khan</h6>
+          <p class="text-muted small mb-0">Verified Customer</p>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="card border-0 shadow-sm">
-          <img src="<?= base_url('public/images/halwa2.jpg') ?>" class="card-img-top">
-          <div class="card-body text-center">
-            <h6 class="fw-semibold">Dry Fruit Halwa</h6>
-            <p class="text-muted small">Customer favourite</p>
+        <div class="p-4 rounded-3" style="background: white; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-left: 4px solid #667eea;">
+          <div style="display: flex; gap: 2px; margin-bottom: 12px;">
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
           </div>
+          <p class="small text-muted mb-3" style="font-style: italic;">"Perfect sweetness and fast delivery."</p>
+          <h6 class="fw-bold mb-0" style="color: #333;">Rahman Ali</h6>
+          <p class="text-muted small mb-0">Verified Customer</p>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="card border-0 shadow-sm">
-          <img src="<?= base_url('public/images/halwa3.jpg') ?>" class="card-img-top">
-          <div class="card-body text-center">
-            <h6 class="fw-semibold">Exotic Mix Halwa</h6>
-            <p class="text-muted small">Limited edition</p>
+        <div class="p-4 rounded-3" style="background: white; box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-left: 4px solid #f5576c;">
+          <div style="display: flex; gap: 2px; margin-bottom: 12px;">
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-fill" style="color: #ffc107;"></i>
+            <i class="bi bi-star-half" style="color: #ffc107;"></i>
           </div>
+          <p class="small text-muted mb-3" style="font-style: italic;">"Halwaaz is now our family favorite."</p>
+          <h6 class="fw-bold mb-0" style="color: #333;">Suresh Patel</h6>
+          <p class="text-muted small mb-0">Verified Customer</p>
         </div>
       </div>
     </div>
   </div>
+
+  <style>
+    .testimonial-card:hover { transform: translateY(-8px); }
+  </style>
 </section>
-<section class="py-5 bg-white">
+<section class="py-5 text-white text-center" style="background: linear-gradient(135deg, #ff6b6b 0%, #ff8c42 50%, #ffd93d 100%);">
   <div class="container">
-    <h4 class="text-center mb-4 fw-semibold">What Our Customers Say</h4>
+    <h4 class="fw-semibold" style="font-size: 28px;">Get Sweet Offers in Your Inbox</h4>
+    <p class="small" style="opacity: 0.95;">Exclusive deals & festive specials for our subscribers</p>
 
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="p-4 shadow-sm rounded bg-light">
-          <p class="small text-muted">“Best halwa I’ve ever tasted. Fresh and rich!”</p>
-          <h6 class="fw-semibold mb-0">– Ayesha</h6>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="p-4 shadow-sm rounded bg-light">
-          <p class="small text-muted">“Perfect sweetness and fast delivery.”</p>
-          <h6 class="fw-semibold mb-0">– Rahman</h6>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="p-4 shadow-sm rounded bg-light">
-          <p class="small text-muted">“Halwaaz is now our family favorite.”</p>
-          <h6 class="fw-semibold mb-0">– Suresh</h6>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="py-5 text-white text-center" style="background: linear-gradient(135deg,#ff0844,#ffb347);">
-  <div class="container">
-    <h4 class="fw-semibold">Get Sweet Offers in Your Inbox</h4>
-    <p class="small opacity-75">Exclusive deals & festive specials</p>
-
-    <form class="d-flex justify-content-center gap-2 mt-3">
-      <input type="email" class="form-control w-50" placeholder="Enter your email">
-      <button class="btn btn-dark px-4">Subscribe</button>
+    <form class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+      <input type="email" class="form-control" style="max-width: 350px; border: none; border-radius: 8px; padding: 12px 18px; font-size: 14px;" placeholder="Enter your email">
+      <button class="btn" style="background: white; color: #ff6b6b; font-weight: 600; padding: 12px 32px; border-radius: 8px; border: none; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Subscribe</button>
     </form>
   </div>
 </section>
-<footer class="bg-dark text-light pt-5">
+<footer class="text-light pt-5" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); position: relative;">
   <div class="container">
-    <div class="row g-4">
+    <div class="row g-5">
 
       <div class="col-md-4">
-        <h5 class="fw-semibold">Halwaaz</h5>
-        <p class="small text-muted">
-          Sweet & Delicious Halwa World. Crafted with love and tradition.
+        <h5 class="fw-bold mb-3" style="font-size: 20px; background: linear-gradient(135deg, #ff6b6b, #ff8c42); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Halwaaz</h5>
+        <p class="small" style="color: #aaa; line-height: 1.6;">
+          Sweet & Delicious Halwa World. Crafted with love, tradition, and premium ingredients for your special moments.
         </p>
+        <div style="display: flex; gap: 12px; margin-top: 16px;">
+          <div style="width: 40px; height: 40px; background: rgba(255,107,107,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;"><i class="bi bi-instagram" style="color: #ff6b6b;"></i></div>
+          <div style="width: 40px; height: 40px; background: rgba(102,126,234,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;"><i class="bi bi-facebook" style="color: #667eea;"></i></div>
+          <div style="width: 40px; height: 40px; background: rgba(52,211,153,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;"><i class="bi bi-whatsapp" style="color: #34d399;"></i></div>
+        </div>
       </div>
 
       <div class="col-md-2">
-        <h6 class="fw-semibold">Quick Links</h6>
+        <h6 class="fw-bold mb-4" style="color: #fff;">Quick Links</h6>
         <ul class="list-unstyled small">
-          <li><a href="#" class="text-muted text-decoration-none">Home</a></li>
-          <li><a href="#" class="text-muted text-decoration-none">Categories</a></li>
-          <li><a href="#" class="text-muted text-decoration-none">Orders</a></li>
+          <li class="mb-2"><a href="<?= base_url('/') ?>" style="color: #aaa; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#ff8c42'" onmouseout="this.style.color='#aaa'"><i class="bi bi-arrow-up"></i> Back to Top</a></li>
+          <li class="mb-2"><a href="#" style="color: #aaa; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#ff8c42'" onmouseout="this.style.color='#aaa'"><i class="bi bi-shield-check"></i> Privacy Policy</a></li>
+          <li><a href="#" style="color: #aaa; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#ff8c42'" onmouseout="this.style.color='#aaa'"><i class="bi bi-file-text"></i> Terms & Conditions</a></li>
         </ul>
       </div>
 
       <div class="col-md-3">
-        <h6 class="fw-semibold">Contact</h6>
-        <p class="small text-muted mb-1">📍 India</p>
-        <p class="small text-muted mb-1">📞 +91 XXXXX XXXXX</p>
-        <p class="small text-muted">✉ support@halwaaz.com</p>
+        <h6 class="fw-bold mb-4" style="color: #fff;">Contact Info</h6>
+        <div class="small" style="color: #aaa; line-height: 2;">
+          <p class="mb-2"><i class="bi bi-geo-alt-fill" style="color: #ff8c42; margin-right: 8px;\"></i>India</p>
+          <p class="mb-2"><i class="bi bi-telephone-fill\" style="color: #ff8c42; margin-right: 8px;\"></i>+91 XXXXX XXXXX</p>
+          <p><i class="bi bi-envelope-fill\" style="color: #ff8c42; margin-right: 8px;\"></i>support@halwaaz.com</p>
+        </div>
       </div>
 
       <div class="col-md-3">
-        <h6 class="fw-semibold">Follow Us</h6>
-        <div class="d-flex gap-3 fs-5">
-          <i class="bi bi-instagram"></i>
-          <i class="bi bi-facebook"></i>
-          <i class="bi bi-whatsapp"></i>
+        <h6 class="fw-bold mb-4\" style="color: #fff;\">Business Hours</h6>
+        <div class="small\" style="color: #aaa; line-height: 2;\">
+          <p class=\"mb-2\"><i class=\"bi bi-calendar3\" style=\"color: #ff8c42; margin-right: 8px;\"></i>Mon - Sun</p>
+          <p class=\"mb-2\"><i class=\"bi bi-clock\" style=\"color: #ff8c42; margin-right: 8px;\"></i>8:00 AM - 10:00 PM</p>
+          <p><span style=\"display: inline-block; background: #34d399; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;\">Always Open</span></p>
         </div>
       </div>
 
     </div>
 
-    <hr class="border-secondary mt-4">
+    <hr class=\"border-secondary mt-5\">
 
-    <p class="text-center small text-muted mb-0 pb-3">
-      © <?= date('Y') ?> Halwaaz. All rights reserved.
+    <p class=\"text-center small\" style=\"color: #666; margin-bottom: 0; padding-bottom: 24px;\">
+      © <?= date('Y') ?> <span style=\"background: linear-gradient(135deg, #ff6b6b, #ff8c42); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600;\">Halwaaz</span> • All rights reserved • Crafted with <i class=\"bi bi-heart-fill\" style=\"color: #ff6b6b;\"></i> for sweet lovers
     </p>
   </div>
 </footer>

@@ -332,7 +332,8 @@ th {
 </td>
      <td>
             <a href="<?= base_url('edit_itemlist/'.$item['id']) ?>" class="btn btn-warning btn-sm">Edit</a>
-            <button class="dlt-btn"  data-id="<?=$item['id'] ?> ">Delete</button>
+            <button class="btn-delete-item" data-id="<?=$item['id']?>">Delete</button>
+
     </td>
 
 </tr>
@@ -351,15 +352,15 @@ th {
  <!-- DELETE MODAL -->
 <div class="modal-overlay" id="deleteModal">
     <div class="modal-box">
-        <div class="modal-header">Delete Category</div>
-
-        <p>Are you sure you want to delete this category?</p>
+       <div class="modal-header">Delete Item</div>
+<p>Are you sure you want to delete this item?</p>
 
         <input type="hidden" id="delete_id">
 
         <div class="modal-footer">
-            <button type="button" class="btn-close close-modal" id="cancel-btn">Cancel</button>
-            <button type="button" class="dlt-btn" id="confirmDelete-btn">Delete</button>
+           <button type="button" class="btn-close close-modal">Cancel</button>
+           <button type="button" class="dlt-btn" id="confirmDelete-btn">Delete</button>
+
         </div>
     </div>
 </div>
@@ -367,9 +368,9 @@ th {
 <script>
     $(document).ready (function()
     {
-   $('.dlt-btn').on('click', function () {
+      // OPEN MODAL
+    $('.btn-delete-item').on('click', function () {
         let id = $(this).data('id');
-
         $('#delete_id').val(id);
         $('#deleteModal').fadeIn();
     });

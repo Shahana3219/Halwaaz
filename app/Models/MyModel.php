@@ -133,18 +133,18 @@ public function get_items($search = null, $category = null, $priceSort = null, $
 }
    
 
-            //ONLY items of ONE category
-public function get_item_by_category($categoryId)
-{
-    $query=$this->db->table('tbl_items i');
-    $query->select('i.id,i.name,i.quantity,i.amount,i.image,c.name AS category_name ');
-    $query->join('tbl_category c','c.id=i.category','left');
-    $query->where('i.category',$categoryId);
-    $query->where(['i.status'=>0]);
+//             //ONLY items of ONE category
+// public function get_item_by_category($categoryId)
+// {
+//     $query=$this->db->table('tbl_items i');
+//     $query->select('i.id,i.name,i.quantity,i.amount,i.image,c.name AS category_name ');
+//     $query->join('tbl_category c','c.id=i.category','left');
+//     $query->where('i.category',$categoryId);
+//     $query->where(['i.status'=>0]);
     
-    return $query->get()->getResultArray();
+//     return $query->get()->getResultArray();
 
-}
+// }
 
        ///user cart items listing
 public function user_cartitems($userid){
@@ -398,6 +398,59 @@ public function get_cart_count($userId)
         ->countAllResults();
 
     return (int) $count;
+}
+// GLOBAL FILTERED SEARCH (Reusable everywhere)
+public function get_filtered_items(
+    $search = null,
+    $categoryId = null,
+    $priceSort = null,
+    $qtySort = null,
+    $instock = null
+) {
+    $query = $this->db->table('tbl_items i');
+
+    $query->select('
+        i.id,
+        i.name,
+        i.quantity,
+        i.amount,
+        i.image,
+        c.name AS category_name
+    ');
+
+    $query->join('tbl_category c', 'c.id = i.category', 'left');
+    $query->where('i.status', 0);
+
+    // SEARCH
+    if (!empty($search)) {
+        $query->like('i.name', $search);
+    }
+
+    // CATEGORY
+    if (!empty($categoryId)) {
+        $query->where('i.category', $categoryId);
+    }
+
+    // IN STOCK ONLY
+    if (!empty($instock)) {
+        $query->where('i.quantity >', 0);
+    }
+
+    // PRICE SORT
+    if ($priceSort === 'price_asc') {
+        $query->orderBy('i.amount', 'ASC');
+    } elseif ($priceSort === 'price_desc') {
+        $query->orderBy('i.amount', 'DESC');
+    }
+
+    // QUANTITY SORT
+    if ($qtySort === 'qty_asc') {
+        $query->orderBy('i.quantity', 'ASC');
+    } elseif ($qtySort === 'qty_desc') {
+        $query->orderBy('i.quantity', 'DESC');
+    }
+
+    return $query->get()->getResultArray();
 }
 
 

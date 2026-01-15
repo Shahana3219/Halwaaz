@@ -2,88 +2,254 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Halwaaz | Category Items</title>
+    <title>Halwaaz | Shopping Cart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #ffffff 0%, #f8f9fa 100%) !important;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+        }
+
+        .navbar-brand {
+            font-size: 24px !important;
+            background: linear-gradient(135deg, #ff6b6b, #ff8c42);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: #555 !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ff8c42 !important;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .container h2 {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .table {
+            background: white;
+        }
+
+        .table thead {
+            background: linear-gradient(90deg, #ff6b6b 0%, #ff8c42 100%);
+            color: white;
+            font-weight: 600;
+            border: none;
+        }
+
+        .table thead th {
+            border: none;
+            padding: 14px;
+            font-size: 13px;
+        }
+
+        .table tbody td {
+            border: 1px solid #f0f0f0;
+            padding: 14px;
+            vertical-align: middle;
+        }
+
+        .table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .table img {
+            border-radius: 10px;
+        }
+
+        .btn {
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+            border: none;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52, 211, 153, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .cart-plus, .cart-minus, .cart_remove {
+            background: #f0f0f0;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .cart-plus:hover, .cart-minus:hover {
+            background: linear-gradient(135deg, #ff8c42, #ff6b6b);
+            color: white;
+        }
+
+        .cart_remove {
+            background: #ffe5e5;
+            color: #ff6b6b;
+        }
+
+        .cart_remove:hover {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .buy-btn {
+            background: linear-gradient(135deg, #34d399, #10b981);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(52, 211, 153, 0.3);
+        }
+
+        .table tr:last-child {
+            background: linear-gradient(90deg, #fff8f8, #fff5f0);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .table tr:last-child strong {
+            color: #ff8c42;
+        }
+
 /* Overlay */
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1050;
+    backdrop-filter: blur(4px);
 }
 
 /* Modal box */
 .modal-box {
-    background: #fff;
+    background: white;
     width: 420px;
     max-width: 90%;
-    border-radius: 10px;
-    padding: 20px 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    animation: scaleIn 0.25s ease-in-out;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 25px 65px rgba(0,0,0,0.3);
+    animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Header */
 .modal-header {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
     color: #333;
+    background: linear-gradient(135deg, #ff6b6b, #ff8c42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Body text */
 #deliveryText {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 25px;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.6;
 }
 
 /* Footer buttons */
 .modal-footer {
     display: flex;
     justify-content: flex-end;
-    gap: 15px; /* THIS fixes close buttons issue */
+    gap: 12px;
 }
 
 /* Cancel button */
 .close-modal {
-    background: #e9ecef;
+    background: #f0f0f0;
     border: none;
-    padding: 8px 18px;
-    border-radius: 6px;
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: #e0e0e0;
 }
 
 /* Confirm button */
 .confirm-btn {
-    background: #198754;
-    color: #fff;
+    background: linear-gradient(135deg, #ff6b6b, #ff8c42);
+    color: white;
     border: none;
-    padding: 8px 18px;
-    border-radius: 6px;
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .confirm-btn:hover {
-    background: #157347;
-}
-
-.close-modal:hover {
-    background: #dee2e6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
 }
 
 /* Animation */
 @keyframes scaleIn {
     from {
-        transform: scale(0.9);
+        transform: scale(0.85);
         opacity: 0;
     }
     to {
