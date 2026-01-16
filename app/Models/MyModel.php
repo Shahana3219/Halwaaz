@@ -102,7 +102,6 @@ public function get_items($search = null, $category = null, $priceSort = null, $
     $query->select('i.id, i.name, i.quantity, i.amount, i.image, c.name AS category');
     $query->join('tbl_category c', 'c.id = i.category', 'left');
     $query->where('i.status',0);
- 
 
     if($search)
     {
@@ -183,7 +182,7 @@ public function get_user_orders($userId) {
         ->where('o.user_id',$userId)
         ->where('o.status', 0)
         ->groupBy('o.id') 
-        ->orderBy('o.id','DESC')
+        ->orderBy('o.del_date','ASC')
         ->get()
         ->getResultArray();
 }

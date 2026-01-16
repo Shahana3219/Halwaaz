@@ -908,6 +908,109 @@ $db = \Config\Database::connect();
     );
 }
 
+            ///CHECKOUT
+            public function checkout_cart()
+{
+    $session = session();
+    $userId  = $session->get('user_id');
+
+    if (!$userId) {
+        return $this->response->setJSON([
+            'status' => 'error',
+            'message' => 'Please login to continue'
+        ]);
+    }
+
+    $cartItems = $this->MyModel->user_cartitems($userId);
+
+    if (empty($cartItems)) {
+        return $this->response->setJSON([
+            'status' => 'error',
+            'message' => 'Cart is empty'
+        ]);
+    }
+
+    $db = \Config\Database::connect();
+    $db->transStart();
+
+    $orderDate = date('Y-m-d H:i:s');
+    $delDate   = date('Y-m-d', strtotime('+3 days'));
+
+    // placed status
+    $delStatus = $this->MyModel->select_data(
+        'tbl_del_status',
+        'id',
+        ['name' => 'placed']
+    );
+    $placedStatusId = $delStatus[0]['id'];
+
+    foreach ($cartItems as $cart) {
+
+        // Stock validation
+        if ($cart['item_stock'] < $cart['quantity']) {
+            $db->transRollback();
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Insufficient stock for ' . $cart['name']
+            ]);
+        }
+
+        $total = $cart['amount'] * $cart['quantity'];
+
+        // INSERT ORDER (same as BUY NOW logic)
+        $this->MyModel->insert_to_tb('tbl_orders', [
+            'status'        => 0,
+            'user_id'       => $userId,
+            'item_id'       => $cart['item_id'],
+            'item_quantity' => $cart['quantity'],
+            'order_date'    => $orderDate,
+            'del_date'      => $delDate,
+            'del_status'    => $placedStatusId,
+            'total_amount'  => $total,
+            'order_status'  => 'Placed'
+        ]);
+
+        $orderId = $db->insertID();
+
+        // ORDER ITEMS
+        $this->MyModel->insert_to_tb('tbl_order_items', [
+            'status'     => 0,
+            'order_id'   => $orderId,
+            'item_id'    => $cart['item_id'],
+            'order_date' => $orderDate,
+            'del_status' => $placedStatusId
+        ]);
+
+        // REDUCE STOCK
+        $this->MyModel->update_data(
+            'tbl_items',
+            ['quantity' => $cart['item_stock'] - $cart['quantity']],
+            ['id' => $cart['item_id']]
+        );
+    }
+
+    // CLEAR CART
+    $this->MyModel->update_data(
+        'tbl_cart',
+        ['status' => 1],
+        ['user_id' => $userId]
+    );
+
+    $db->transComplete();
+
+    if ($db->transStatus() === false) {
+        return $this->response->setJSON([
+            'status' => 'error',
+            'message' => 'Checkout failed'
+        ]);
+    }
+
+    return $this->response->setJSON([
+        'status' => 'success',
+        'message' => 'Order placed successfully'
+    ]);
+}
+
 
 public function my_orders() {
     $userId = session()->get('user_id');

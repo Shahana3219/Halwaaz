@@ -67,6 +67,7 @@ $routes->get('report_pdf', 'myController::report_pdf');
 $routes->get('report_pdf1', 'myController::report_pdf1');
 
 $routes->get('itemwise_table','myController::report_pdf');
+$routes->post('checkout_cart', 'myController::checkout_cart');
 
 
 /*

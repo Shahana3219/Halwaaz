@@ -223,11 +223,42 @@
 </nav>
 <div class="container mt-4">
     <h5 class="mb-3 fw-semibold">My Orders</h5>
+    <div class="row g-2 mb-4">
+    <div class="col-md-4">
+        <input type="text" id="filterName" class="form-control"
+               placeholder="Search item name">
+    </div>
+
+    <div class="col-md-3">
+        <input type="date" id="filterDate" class="form-control">
+    </div>
+
+    <div class="col-md-3">
+        <select id="filterStatus" class="form-select">
+            <option value="">All Status</option>
+            <option value="0">Pending</option>
+            <option value="1">Delivered</option>
+            <option value="2">Cancelled</option>
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <button id="clearFilter" class="btn btn-secondary w-100">
+            Clear
+        </button>
+    </div>
+</div>
+
 
     <?php if (!empty($orders)): ?>
         <?php foreach ($orders as $order): ?>
-            <a href="<?= base_url('order_details/'.$order['order_id']) ?>"
-               class="order-card shadow-sm">
+<a href="<?= base_url('order_details/'.$order['order_id']) ?>"
+   class="order-card shadow-sm order-row"
+   data-name="<?= strtolower($order['item_name']) ?>"
+   data-date="<?= $order['del_date'] ?>"
+   data-status="<?= $order['order_status'] ?>">
+
+             
 
                 <!-- ITEM IMAGE -->
                 <div class="d-flex align-items-center gap-3">

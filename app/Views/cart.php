@@ -315,7 +315,19 @@
 <div class="container mt-5">
     <h2>Your Cart</h2>
 
-    <?php if (!empty($cart)): ?>
+<?php if (!empty($cart)): ?>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+    <input type="text" id="filterName" placeholder="Search item name">
+    <select id="filterQty">
+        <option value="">All Qty</option>
+        <option value="low">Low Qty (≤2)</option>
+        <option value="high">High Qty (>2)</option>
+    </select>
+    <button id="clearFilter" class="btn btn-secondary">Clear</button>
+</div>
+
         <table class="table table-bordered mt-3">
             <thead>
                 <tr>
@@ -334,7 +346,7 @@
                     $subtotal = $item['amount'] * $item['quantity'];
                     $total += $subtotal;
                 ?>
-                <tr>
+                <tr class="cart-row" data-name="<?= strtolower($item['name']) ?>" data-qty="<?= $item['quantity'] ?>">
                     <td><img src="<?= base_url('public/images/' . $item['image']) ?>" width="60" alt="<?= $item['name'] ?>"></td>
                     <td><?= $item['name'] ?></td>
                     <td>₹ <?= number_format($item['amount'], 2) ?></td>
@@ -374,8 +386,10 @@
                 </tr>
             </tbody>
         </table>
+<button id="checkoutCart" class="btn btn-success">
+    Proceed to Checkout
+</button>
 
-        <a href="#" class="btn btn-success">Proceed to Checkout</a>
         <a href="<?=base_url('home')?>" class="btn btn-primary">Continue Shopping</a>
 
     <?php else: ?>
@@ -543,5 +557,69 @@ $(document).on('click', '.close-modal', function () {
     $('#buyModal').fadeOut();
 });
 </script>
+<script>
+$(document).ready(function () {
+
+    // FILTERING
+    $('#filterName, #filterQty').on('keyup change', function () {
+
+        let name = $('#filterName').val().toLowerCase().trim();
+        let qtyFilter = $('#filterQty').val();
+
+        $('.cart-row').each(function () {
+
+            let rowName = $(this).data('name').toString();
+            let rowQty  = parseInt($(this).data('qty'), 10);
+            let show = true;
+
+            if (name !== '' && !rowName.includes(name)) {
+                show = false;
+            }
+
+            if (qtyFilter === 'low' && rowQty > 2) {
+                show = false;
+            }
+
+            if (qtyFilter === 'high' && rowQty <= 2) {
+                show = false;
+            }
+
+            $(this).toggle(show);
+        });
+    });
+
+    // CLEAR FILTER
+    $('#clearFilter').on('click', function () {
+        $('#filterName').val('');
+        $('#filterQty').val('');
+        $('.cart-row').show();
+    });
+
+});
+</script>
+<script>
+$('#checkoutCart').on('click', function () {
+
+    if (!confirm('Confirm checkout for all cart items?')) return;
+
+    $.ajax({
+        url: "<?= base_url('checkout_cart') ?>",
+        type: "POST",
+        dataType: "json",
+        success: function (res) {
+            alert(res.message);
+            if (res.status === 'success') {
+                window.location.href = "<?= base_url('my_orders') ?>";
+            }
+        },
+        error: function () {
+            alert('Checkout failed');
+        }
+    });
+});
+</script>
+
+
+
 </body>
 </html>
