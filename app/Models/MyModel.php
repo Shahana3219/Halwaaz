@@ -223,6 +223,7 @@ public function get_order_summary($orderId)
 public function get_orders_list($itemName = null, $delDate = null, $orderStatus = null)
 {
     $builder = $this->db->table('tbl_orders o');
+
     $builder->select('
         o.id,
         o.order_date,
@@ -235,7 +236,13 @@ public function get_orders_list($itemName = null, $delDate = null, $orderStatus 
         i.name as item_name
     ');
 
-    $builder->join('tbl_items i', 'o.item_id = i.id', 'left');
+    // Order → Order Items
+    $builder->join('tbl_order_items oi', 'oi.order_id = o.id', 'left');
+
+    // Order Items → Items
+    $builder->join('tbl_items i', 'oi.item_id = i.id', 'left');
+
+    // Orders → Users
     $builder->join('tbl_users u', 'o.user_id = u.id', 'left');
 
     if (!empty($itemName)) {
@@ -254,6 +261,7 @@ public function get_orders_list($itemName = null, $delDate = null, $orderStatus 
 
     return $builder->get()->getResultArray();
 }
+
 
 
 

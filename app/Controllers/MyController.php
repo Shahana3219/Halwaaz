@@ -150,112 +150,40 @@ public function save_login(){
 public function admin_dashboard()
 {
     if (!session()->get('logged_in') || session()->get('role') != 1) {
-        return redirect()->to('/')
-            ->with('error', 'Unauthorized access');
+        return redirect()->to('/')->with('error', 'Unauthorized access');
     }
 
-    /* ------------------ BASIC COUNTS ------------------ */
+    // Basic counts
+    $totalItemsCount = $this->MyModel->select_data('tbl_items', 'COUNT(*) AS count', ['status'=>0])[0]['count'] ?? 0;
+    $totalCategoriesCount = $this->MyModel->select_data('tbl_category', 'COUNT(*) AS count', ['status'=>0])[0]['count'] ?? 0;
+    $totalSalesCount = $this->MyModel->select_data('tbl_orders', 'COUNT(id) AS total_sales', [])[0]['total_sales'] ?? 0;
 
-    $totalItems = $this->MyModel->select_data(
-        'tbl_items',
-        'COUNT(*) AS count',
-        ['status' => 0]
-    );
-    $totalItemsCount = $totalItems[0]['count'] ?? 0;
-
-    $totalCategories = $this->MyModel->select_data(
-        'tbl_category',
-        'COUNT(*) AS count',
-        ['status' => 0]
-    );
-    $totalCategoriesCount = $totalCategories[0]['count'] ?? 0;
-
-    /* ------------------ SALES REPORT (ITEM WISE) ------------------ */
-
-    $salesData = $this->MyModel->get_sales_report();
-
-    $totalSalesAmount = 0;
-    $salesByItem = [];
-
-    if (!empty($salesData)) {
-        foreach ($salesData as $sale) {
-            $totalSalesAmount += (float)$sale['total_amount'];
-
-            $salesByItem[] = [
-                'name'   => $sale['item_name'],
-                'sold'   => $sale['total_sold'],
-                'amount'=> $sale['total_amount']
-            ];
-        }
+    // Sales by Item
+   $rawSales = $this->MyModel->get_sales_report();
+$salesByItem = [];
+if (!empty($rawSales)) {
+    foreach ($rawSales as $row) {
+        $salesByItem[] = [
+            'name' => $row['item_name'],
+            'sold' => (int) $row['total_sold']
+        ];
     }
+}
 
-    /* ------------------ TOTAL SALES = NO OF ORDERS ------------------ */
-
-    $totalSalesRow = $this->MyModel->select_data(
-        'tbl_orders',
-        'COUNT(id) AS total_sales',
-        [
-            'status' => 0
-        ]
-    );
-
-    $totalSalesCount = $totalSalesRow[0]['total_sales'] ?? 0;
-
-    /* ------------------ ORDER STATS ------------------ */
-
-    $allOrders = $this->MyModel->select_data(
-        'tbl_orders',
-        'id, total_amount, order_status, status',
-        []
-    );
-
-    $totalLoss = 0;
-    $cancelledOrders = 0;
-    $completedOrders = 0;
-    $pendingOrders = 0;
-
-    foreach ($allOrders as $order) {
-        $statusText = strtolower(trim($order['order_status'] ?? ''));
-
-        $isCancelled = (
-            $order['status'] == 1 ||
-            strpos($statusText, 'cancel') !== false
-        );
-
-        if ($isCancelled) {
-            $cancelledOrders++;
-            $totalLoss += (float)($order['total_amount'] ?? 0);
-        }
-        elseif (
-            strpos($statusText, 'placed') !== false ||
-            strpos($statusText, 'complete') !== false ||
-            strpos($statusText, 'deliver') !== false
-        ) {
-            $completedOrders++;
-        }
-        elseif (strpos($statusText, 'pend') !== false) {
-            $pendingOrders++;
-        }
-    }
-
-    /* ------------------ FINAL VIEW DATA ------------------ */
-
+// Guarantee at least one slice so the chart never breaks
+if (empty($salesByItem)) {
+    $salesByItem = [
+        ['name' => 'No Sales Yet', 'sold' => 1]
+    ];
+}
     return view('admin_dashboard', [
-        'totalItems'        => $totalItemsCount,
-        'totalCategories'   => $totalCategoriesCount,
-
-        // ✅ SALES = ORDER COUNT
-        'totalSales'        => $totalSalesCount,
-
-        // Amount-based values
-       
-
-     
-
-        'salesByItem'       => $salesByItem,
-        'allOrders'         => $allOrders
+        'totalItems'      => $totalItemsCount,
+        'totalCategories' => $totalCategoriesCount,
+        'totalSales'      => $totalSalesCount,
+        'salesByItem'     => $salesByItem // Pass it to the view
     ]);
 }
+
 
 
 
