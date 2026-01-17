@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        body {
-            background:#f1f3f6;
-        }
+        body { background:#f1f3f6; }
 
         .order-box {
             background:#fff;
@@ -33,29 +30,12 @@
             border:1px solid #eee;
         }
 
-        .order-info {
-            flex:1;
-        }
+        .order-info { flex:1; }
+        .order-info h6 { font-weight:600; margin-bottom:6px; }
+        .order-info small { color:#6c757d; }
 
-        .order-info h6 {
-            font-weight:600;
-            margin-bottom:6px;
-        }
-
-        .order-info small {
-            color:#6c757d;
-        }
-
-        .order-right {
-            text-align:right;
-            min-width:120px;
-        }
-
-        .price {
-            font-size:18px;
-            font-weight:700;
-            color:#198754;
-        }
+        .order-right { text-align:right; min-width:120px; }
+        .price { font-size:18px; font-weight:700; color:#198754; }
 
         .order-header,
         .summary-box {
@@ -66,15 +46,8 @@
         }
 
         @media(max-width:576px){
-            .order-box {
-                flex-direction:column;
-                align-items:flex-start;
-            }
-
-            .order-right {
-                text-align:left;
-                width:100%;
-            }
+            .order-box { flex-direction:column; align-items:flex-start; }
+            .order-right { text-align:left; width:100%; }
         }
     </style>
 </head>
@@ -97,13 +70,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('home') ?>"><i class="bi bi-receipt"></i> Dashboard</a>
                 </li>
-               <li class="nav-item">
-    <a class="nav-link" href="<?= base_url('my_orders') ?>">
-        <i class="bi bi-card-checklist"></i> My Orders
-        <span id="ordersCount"><?= $ordersCount ?? 0 ?></span>
-    </a>
-</li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('my_orders') ?>">
+                        <i class="bi bi-card-checklist"></i> My Orders
+                        <span id="ordersCount"><?= $ordersCount ?? 0 ?></span>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('cart') ?>"><i class="bi bi-cart"></i> My Cart
                         <span id="cartCount"><?= $cartCount ?? 0 ?></span>
@@ -114,7 +86,6 @@
                         <i class="bi bi-person-circle"></i> Account
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end shadow">
-                        
                         <li><a class="dropdown-item text-danger" href="<?= base_url('logout') ?>"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
                     </ul>
                 </li>
@@ -122,128 +93,68 @@
         </div>
     </div>
 </nav>
+
 <div class="container my-4">
 
     <!-- ORDER HEADER -->
     <div class="order-header mb-3 d-flex justify-content-between align-items-center">
         <div>
             <h6 class="mb-1">Order #<?= $order['id'] ?></h6>
-            <small>Delivery by <?= date('d M Y', strtotime($order['del_date'])) ?></small>
+            <small>Delivery by <?= date('d M Y', strtotime($order['del_date'] ?? '')) ?></small>
         </div>
-
         <span class="badge bg-primary">
-            <?= ucfirst($order['order_status']) ?>
+            <?= ucfirst($order['order_status'] ?? 'Pending') ?>
         </span>
     </div>
 
-   <?php foreach($items as $item): ?>
 
 <?php
-    // Unit price
-    $unitPrice = isset($item['amount'])
-        ? $item['amount']
-        : ($item['total_amount'] / $item['item_quantity']);
-
-    $itemTotal = $unitPrice * $item['item_quantity'];
+$grandTotal = 0;
 ?>
 
+<!-- ORDER ITEMS -->
+<?php foreach ($items as $item): ?>
 <div class="order-box">
-    <img src="<?= base_url('uploads/items/'.$item['item_image']) ?>">
-
+    <img src="<?= base_url('uploads/items/'.$item['item_image']) ?>" onerror="this.src='<?= base_url('assets/no-image.png') ?>'">
     <div class="order-info">
         <h6><?= esc($item['item_name']) ?></h6>
         <small>Quantity: <?= $item['item_quantity'] ?></small><br>
-        <small>Price per item: ₹<?= number_format($unitPrice, 2) ?></small><br>
-        <small>Expected delivery: <?= date('d M Y', strtotime($order['del_date'])) ?></small>
-        <span class="badge bg-primary">
-            <?= ucfirst($order['order_status']) ?>
-        </span>
-    
-
-    </div>
-
-    <div class="order-right">
-        <div class="price">
-            ₹<?= number_format($itemTotal, 2) ?>
-        </div>
+        <small>Unit Price: ₹<?= number_format($item['unit_price'], 2) ?></small><br>
+        <small>Line Total: ₹<?= number_format($item['item_total'], 2) ?></small><br>
+        <small>Expected Delivery: <?= date('d M Y', strtotime($order['del_date'] ?? '')) ?></small><br>
+        <span class="badge bg-primary"><?= ucfirst($order['order_status'] ?? 'Pending') ?></span>
     </div>
 </div>
-
+<?php
+$grandTotal += $item['item_total'];
+?>
 <?php endforeach; ?>
 
-
-<div class="summary-box mt-4 p-3 bg-white rounded shadow-sm">
-
-<?php
-    $grandTotal     = 0;
-    $serviceCharge  = 0;
-    $platformFee    = 0;
-    $deliveryCharge = 0;
-?>
-
-<?php foreach ($items as $item): ?>
-
-<?php
-    $unitPrice = isset($item['amount'])
-        ? $item['amount']
-        : ($item['total_amount'] / $item['item_quantity']);
-
-    $itemTotal = $unitPrice * $item['item_quantity'];
-    $grandTotal += $itemTotal;
-?>
-
-
-<?php endforeach; ?>
-
-<hr>
-
-<div class="d-flex justify-content-between mb-2">
-    <span>Service Charge</span>
-    <span>₹0.00</span>
+<!-- ORDER SUMMARY -->
+<div class="summary-box mt-4 p-3">
+    <h6>Order Summary</h6>
+    <hr>
+    <?php foreach ($items as $item): ?>
+    <div class="d-flex justify-content-between">
+        <span><?= $item['item_quantity'] ?> × <?= esc($item['item_name']) ?></span>
+        <span>₹<?= number_format($item['item_total'], 2) ?></span>
+    </div>
+    <?php endforeach; ?>
+    <hr>
+    <div class="d-flex justify-content-between">
+        <strong>Grand Total</strong>
+        <strong class="text-success fs-5">₹<?= number_format($grandTotal, 2) ?></strong>
+    </div>
 </div>
 
-<div class="d-flex justify-content-between mb-2">
-    <span>Platform Fee</span>
-    <span>₹0.00</span>
-</div>
-
-<div class="d-flex justify-content-between mb-2">
-    <span>Delivery Charge</span>
-    <span>₹0.00</span>
-</div>
-<div class="d-flex justify-content-between mb-2">
-    <span>
-        <?= $item['item_quantity'] ?> × ₹<?= number_format($unitPrice, 2) ?>
-    </span>
-    <span>
-        ₹<?= number_format($itemTotal, 2) ?>
-    </span>
-</div>
-<hr>
-
-<div class="d-flex justify-content-between">
-    <strong>Total Amount</strong>
-    <strong class="text-success fs-5">
-        ₹<?= number_format(
-            $grandTotal + $serviceCharge + $platformFee + $deliveryCharge,
-            2
-        ) ?>
-    </strong>
-</div>
-
-</div>
-<form action="<?= base_url('cancel_order') ?>" method="post">
+<!-- CANCEL ORDER BUTTON -->
+<form action="<?= base_url('cancel_order') ?>" method="post" class="mt-3">
     <input type="hidden" name="id" value="<?= $order['id'] ?>">
-    <button type="submit">Cancel Order</button>
+    <button type="submit" class="btn btn-danger">Cancel Order</button>
 </form>
 
-
-
-
-
-
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

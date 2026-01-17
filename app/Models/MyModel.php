@@ -166,46 +166,56 @@ public function user_cartitems($userid){
     ->getResultArray();
 }
 
-        // each users orders listing view
-public function get_user_orders($userId) {
+public function get_user_orders($userId)
+{
     return $this->db
         ->table('tbl_orders o')
         ->select('
-        o.id AS order_id,
-        o.item_id, 
-        i.name AS item_name, i.image AS item_image, o.del_date, 
-        SUM(o.item_quantity) AS total_quantity, 
-        SUM(o.total_amount) AS total_amount, 
-        MAX(o.order_status) AS order_status
+            o.id AS order_id,
+            o.total_amount,
+            o.order_status,
+            o.del_date,
+            GROUP_CONCAT(i.name ORDER BY oi.id) AS item_names,
+            GROUP_CONCAT(oi.item_quantity ORDER BY oi.id) AS item_quantities,
+            GROUP_CONCAT(i.image ORDER BY oi.id) AS item_images
         ')
-        ->join('tbl_items i','i.id=o.item_id','left')
-        ->where('o.user_id',$userId)
+        ->join('tbl_order_items oi', 'oi.order_id = o.id', 'left')
+        ->join('tbl_items i', 'i.id = oi.item_id', 'left')
+        ->where('o.user_id', $userId)
         ->where('o.status', 0)
-        ->groupBy('o.id') 
-        ->orderBy('o.del_date','ASC')
+        ->groupBy('o.id')
+        ->orderBy('o.del_date', 'ASC')
         ->get()
         ->getResultArray();
 }
+
+
 
 
 public function get_order_items($orderId)
 {
-    return $this->db->table('tbl_orders o')
+    return $this->db->table('tbl_order_items oi')
         ->select('
-            o.item_quantity,
-            o.total_amount,
+            oi.item_quantity,
+            oi.unit_price,
+            oi.total_amount AS item_total,
             i.name AS item_name,
             i.image AS item_image
         ')
-        ->join('tbl_items i','i.id = o.item_id')
-        ->where('o.id',$orderId)
+        ->join('tbl_items i', 'i.id = oi.item_id', 'left')
+        ->where('oi.order_id', $orderId)
+        ->where('oi.status', 0)
         ->get()
         ->getResultArray();
 }
+
+
+
+
 public function get_order_summary($orderId)
 {
     return $this->db->table('tbl_orders')
-        ->select('id,user_id,item_id,item_quantity,order_date,del_status,total_amount,order_status,del_date')
+        ->select('id,user_id,order_date,del_status,total_amount,order_status,del_date')
         ->where('id',$orderId)
         ->get()
         ->getRowArray();
@@ -213,22 +223,34 @@ public function get_order_summary($orderId)
 public function get_orders_list($itemName = null, $delDate = null, $orderStatus = null)
 {
     $builder = $this->db->table('tbl_orders o');
-    $builder->select('o.id, o.order_date, o.del_date, o.total_amount, o.order_status, u.name as user_name, i.name as item_name');
+    $builder->select('
+        o.id,
+        o.order_date,
+        o.del_date,
+        o.total_amount,
+        o.order_status,
+        u.name as user_name,
+        u.address,
+        u.phone,
+        i.name as item_name
+    ');
+
     $builder->join('tbl_items i', 'o.item_id = i.id', 'left');
     $builder->join('tbl_users u', 'o.user_id = u.id', 'left');
 
-    // Filters
     if (!empty($itemName)) {
         $builder->like('i.name', $itemName);
     }
+
     if (!empty($delDate)) {
         $builder->where('DATE(o.del_date)', $delDate);
     }
+
     if (!empty($orderStatus)) {
-        $builder->like('o.order_status', $orderStatus);
+        $builder->where('o.order_status', $orderStatus);
     }
 
-    $builder->orderBy('o.order_date', 'ASC');
+    $builder->orderBy('o.order_date', 'DESC');
 
     return $builder->get()->getResultArray();
 }
@@ -237,79 +259,88 @@ public function get_orders_list($itemName = null, $delDate = null, $orderStatus 
 
 
 
+
           //SALE REPORT PER ITEM
 public function get_sales_report($fromDate = null, $toDate = null, $itemName = null)
 {
-    $query = $this->db->table('tbl_order_items oi');
+    $builder = $this->db->table('tbl_order_items oi');
 
-    $query->select('
-        i.name AS item_name,
-        COUNT(oi.id) AS total_sold,
-        SUM(i.amount) AS total_amount
-    ');
+    $builder->select([
+        'i.name AS item_name',
+        'SUM(oi.item_quantity) AS total_sold', 
+        'SUM(oi.total_amount) AS total_amount',
+        'COUNT(DISTINCT o.id) AS total_sales'
+    ]);
 
-    $query->join('tbl_orders o', 'o.id = oi.order_id');
-    $query->join('tbl_items i', 'i.id = oi.item_id');
+    $builder->join('tbl_orders o', 'o.id = oi.order_id');
+    $builder->join('tbl_items i', 'i.id = oi.item_id');
 
-    // Only completed/active orders
-    $query->where('o.status', 0);
-    $query->where('o.order_status !=', 'Cancelled');
+    // ✅ Exclude cancelled orders and items
+    $builder->where('o.status', 0);
+    $builder->where('oi.status', 0);
+
+    // Optional safety (if legacy data exists)
+    $builder->where('o.order_status !=', 'Cancelled');
 
     // Date filters
     if (!empty($fromDate)) {
-        $query->where('DATE(o.order_date) >=', $fromDate);
+        $builder->where('DATE(o.order_date) >=', $fromDate);
     }
+
     if (!empty($toDate)) {
-        $query->where('DATE(o.order_date) <=', $toDate);
+        $builder->where('DATE(o.order_date) <=', $toDate);
     }
 
-    // Item name search
+    // Item name filter
     if (!empty($itemName)) {
-        $query->like('i.name', $itemName);
+        $builder->like('i.name', $itemName);
     }
 
-    $query->groupBy('oi.item_id');
-    $query->orderBy('MAX(o.order_date)', 'DESC');
+    $builder->groupBy('oi.item_id');
+    $builder->orderBy('MAX(o.order_date)', 'DESC');
 
-    return $query->get()->getResultArray();
+    return $builder->get()->getResultArray();
 }
-
 
 public function get_userwise_report($userName = null, $fromDate = null, $toDate = null)
 {
-    $query = $this->db->table('tbl_orders o');
+    $builder = $this->db->table('tbl_orders o');
 
-    $query->select('
-        u.id   AS user_id,
-        u.name AS user_name,
-        u.phone,
-        COUNT(o.id) AS total_orders,
-        SUM(o.item_quantity) AS total_items,
-        SUM(o.total_amount) AS total_amount
-    ');
+    $builder->select([
+        'u.id AS user_id',
+        'u.name AS user_name',
+        'u.phone',
+        'COUNT(DISTINCT o.id) AS total_orders',
+        'SUM(oi.item_quantity) AS total_items',
+        'SUM(o.total_amount) AS total_amount'
+    ]);
 
-    $query->join('tbl_users u', 'u.id = o.user_id');
+    $builder->join('tbl_users u', 'u.id = o.user_id');
+    $builder->join('tbl_order_items oi', 'oi.order_id = o.id');
 
-    // Only active / completed orders
-    $query->where('o.status', 0);
-    $query->where('o.order_status !=', 'Cancelled');
+    // Exclude cancelled
+    $builder->where('o.status', 0);
+    $builder->where('oi.status', 0);
+    $builder->where('o.order_status !=', 'Cancelled');
 
-    // USERNAME filter
     if (!empty($userName)) {
-        $query->like('u.name', $userName);
+        $builder->like('u.name', $userName);
     }
 
-    // DATE filter
-    if (!empty($fromDate) && !empty($toDate)) {
-        $query->where('DATE(o.order_date) >=', $fromDate);
-        $query->where('DATE(o.order_date) <=', $toDate);
+    if (!empty($fromDate)) {
+        $builder->where('DATE(o.order_date) >=', $fromDate);
     }
 
-    $query->groupBy('o.user_id');
-    $query->orderBy('MAX(o.order_date)', 'DESC');
+    if (!empty($toDate)) {
+        $builder->where('DATE(o.order_date) <=', $toDate);
+    }
 
-    return $query->get()->getResultArray();
+    $builder->groupBy('o.user_id');
+    $builder->orderBy('MAX(o.order_date)', 'DESC');
+
+    return $builder->get()->getResultArray();
 }
+
 // $userWise = true for user-wise report, false for item-wise
 public function get_sales_report1($fromDate = null, $toDate = null, $search = null, $userWise = false)
 {
@@ -320,8 +351,8 @@ public function get_sales_report1($fromDate = null, $toDate = null, $search = nu
             u.name AS user_name,
             u.phone,
             COUNT(DISTINCT o.id) AS total_orders,
-            SUM(o.item_quantity) AS total_items,
-            SUM(o.item_quantity * i.amount) AS total_amount
+            SUM(oi.item_quantity) AS total_items,
+            SUM(oi.item_quantity * i.amount) AS total_amount
         ');
         $query->join('tbl_users u', 'u.id = o.user_id');
         $query->join('tbl_order_items oi', 'oi.order_id = o.id');
@@ -339,7 +370,7 @@ public function get_sales_report1($fromDate = null, $toDate = null, $search = nu
         if (!empty($search)) $query->like('u.username', $search);
 
         $query->groupBy('o.user_id');
-        $query->orderBy('SUM(o.item_quantity * i.amount)', 'DESC'); // Highest revenue first
+        $query->orderBy('SUM(oi.item_quantity * i.amount)', 'DESC'); // Highest revenue first
     } else {
         // Item-wise report (existing logic)
         $query = $this->db->table('tbl_order_items oi');

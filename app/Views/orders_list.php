@@ -215,7 +215,7 @@ th {
 }
 
 .btn-reset:hover {
-    background: #80a425ff; /* Slightly darker on hover */
+    background: #80a425ff;
 }
 
 .edit { background: #4caf50; }
@@ -257,7 +257,7 @@ th {
                    value="<?= esc($itemName ?? '') ?>">
 
             <input type="date" name="del_date"
-                   value="<?= esc($delDate ?? '') ?>">
+                   value="<?= esc($delDate ?? '') ?>">Delivery date
 
             <select name="order_status">
                 <option value="">All Status</option>
@@ -279,6 +279,9 @@ th {
                 <tr>
                     <th>ID</th>
                     <th>User</th>
+<th>Address</th>
+<th>Phone</th>
+
                     <th>Item</th>
                     <th>Order Date</th>
                     <th>Delivery Date</th>
@@ -292,6 +295,8 @@ th {
                         <tr>
                             <td><?= esc($order['id']) ?></td>
                             <td><?= esc($order['user_name']) ?></td>
+                            <td><?= esc($order['address']) ?></td>
+                            <td><?= esc($order['phone']) ?></td>
                             <td><?= esc($order['item_name']) ?></td>
                             <td><?= esc($order['order_date']) ?></td>
                             <td><?= esc($order['del_date']) ?></td>

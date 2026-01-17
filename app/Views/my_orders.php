@@ -229,18 +229,14 @@
                placeholder="Search item name">
     </div>
 
-    <div class="col-md-3">
+   <div class="col-md-3">
+    <div class="input-group">
+        <span class="input-group-text">Delivery Date</span>
         <input type="date" id="filterDate" class="form-control">
     </div>
+</div>
 
-    <div class="col-md-3">
-        <select id="filterStatus" class="form-select">
-            <option value="">All Status</option>
-            <option value="0">Pending</option>
-            <option value="1">Delivered</option>
-            <option value="2">Cancelled</option>
-        </select>
-    </div>
+   
 
     <div class="col-md-2">
         <button id="clearFilter" class="btn btn-secondary w-100">
@@ -254,7 +250,8 @@
         <?php foreach ($orders as $order): ?>
 <a href="<?= base_url('order_details/'.$order['order_id']) ?>"
    class="order-card shadow-sm order-row"
-   data-name="<?= strtolower($order['item_name']) ?>"
+   data-name="<?= strtolower($order['item_names']??'') ?>"
+
    data-date="<?= $order['del_date'] ?>"
    data-status="<?= $order['order_status'] ?>">
 
@@ -263,15 +260,15 @@
                 <!-- ITEM IMAGE -->
                 <div class="d-flex align-items-center gap-3">
                     <img
-                        src="<?= base_url('uploads/items/'.$order['item_image']) ?>"
+                        src="<?= base_url('uploads/items/'.$order['item_images']) ?>"
                         onerror="this.src='<?= base_url('assets/no-image.png') ?>'"
                         class="order-img"
-                        alt="<?= esc($order['item_name']) ?>">
+                        alt="<?= esc($order['item_names']) ?>">
 
                     <!-- ITEM INFO -->
                     <div>
                         <h6 class="mb-1 fw-semibold text-dark">
-                            <?= esc($order['item_name']) ?>
+                            <?= esc($order['item_names']) ?>
                         </h6>
 
                         <p class="delivery mb-0">

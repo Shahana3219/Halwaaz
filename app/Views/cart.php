@@ -346,10 +346,13 @@
                     $subtotal = $item['amount'] * $item['quantity'];
                     $total += $subtotal;
                 ?>
-                <tr class="cart-row" data-name="<?= strtolower($item['name']) ?>" data-qty="<?= $item['quantity'] ?>">
-                    <td><img src="<?= base_url('public/images/' . $item['image']) ?>" width="60" alt="<?= $item['name'] ?>"></td>
+                 
+<tr class="cart-row"
+    data-name="<?= strtolower(($item['name'] ?? '')) ?>"
+    data-qty="<?= (int) ($item['quantity'] ?? 0) ?>">
+                    <td><img src="<?= base_url('uploads/items/'.$item['image']) ?>" width="150" alt="<?= $item['name'] ?>"></td>
                     <td><?= $item['name'] ?></td>
-                    <td>₹ <?= number_format($item['amount'], 2) ?></td>
+                    <td>₹ <?= number_format(($item['amount'] ?? 0), 2) ?></td>
                     <td><span class="item-quantity" data-cartid="<?= $item['cart_id'] ?>"><?= $item['quantity'] ?></span></td>
                     <td>₹ <span class="item-subtotal" data-cartid="<?= $item['cart_id'] ?>"><?= number_format($subtotal, 2) ?></span></td>
 
@@ -372,10 +375,6 @@
 >
     Buy
 </button>
-
-
-
-
 
                     </td>
                 </tr>
@@ -439,6 +438,7 @@
             total += parseFloat($(this).text()); // Add each item's subtotal
         });
         // Update the total value in the table footer
+        // toFixed(2)=forces 2 decimal places eg:400.00
         $('tr:last td strong').last().text('₹ ' + total.toFixed(2));
     }
 
@@ -546,9 +546,11 @@ $(document).on('click', '#confirmBuy-btn', function () {
                 alert(response.message);
             }
         },
-        error: function () {
-            alert('Something went wrong. Please try again.');
-        }
+        error: function (xhr) {
+    console.log(xhr.responseText);
+    alert(xhr.responseText);
+}
+
     });
 });
 
@@ -599,7 +601,6 @@ $(document).ready(function () {
 </script>
 <script>
 $('#checkoutCart').on('click', function () {
-
     if (!confirm('Confirm checkout for all cart items?')) return;
 
     $.ajax({
@@ -607,13 +608,19 @@ $('#checkoutCart').on('click', function () {
         type: "POST",
         dataType: "json",
         success: function (res) {
-            alert(res.message);
             if (res.status === 'success') {
+                alert(res.message);
+                // Update cart count in navbar
+                $('#cartCount').text('0');
+                // Redirect to orders
                 window.location.href = "<?= base_url('my_orders') ?>";
+            } else {
+                alert('Error: ' + res.message);
             }
         },
-        error: function () {
-            alert('Checkout failed');
+        error: function (xhr, status, error) {
+            console.log('AJAX Error:', xhr.responseText);
+            alert('Checkout failed. Please try again.');
         }
     });
 });

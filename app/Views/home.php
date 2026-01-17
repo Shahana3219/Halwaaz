@@ -614,8 +614,7 @@ html, body {
         <h6 class="fw-bold mb-4" style="color: #fff;">Quick Links</h6>
         <ul class="list-unstyled small">
           <li class="mb-2"><a href="<?= base_url('/') ?>" style="color: #aaa; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#ff8c42'" onmouseout="this.style.color='#aaa'"><i class="bi bi-arrow-up"></i> Back to Top</a></li>
-          <li class="mb-2"><a href="#" style="color: #aaa; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#ff8c42'" onmouseout="this.style.color='#aaa'"><i class="bi bi-shield-check"></i> Privacy Policy</a></li>
-          <li><a href="#" style="color: #aaa; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#ff8c42'" onmouseout="this.style.color='#aaa'"><i class="bi bi-file-text"></i> Terms & Conditions</a></li>
+         
         </ul>
       </div>
 
@@ -633,7 +632,7 @@ html, body {
         <div class="small\" style="color: #aaa; line-height: 2;\">
           <p class=\"mb-2\"><i class=\"bi bi-calendar3\" style=\"color: #ff8c42; margin-right: 8px;\"></i>Mon - Sun</p>
           <p class=\"mb-2\"><i class=\"bi bi-clock\" style=\"color: #ff8c42; margin-right: 8px;\"></i>8:00 AM - 10:00 PM</p>
-          <p><span style=\"display: inline-block; background: #34d399; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;\">Always Open</span></p>
+          
         </div>
       </div>
 

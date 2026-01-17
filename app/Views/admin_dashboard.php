@@ -293,70 +293,41 @@
             <div class="kpi-icon">📦</div>
             <div class="kpi-label">Total Items</div>
             <div class="kpi-value"><?= $totalItems ?></div>
-            <div class="kpi-subtext">Active products in system</div>
+            <div class="kpi-subtext">Active items in system</div>
         </div>
 
-        <div class="kpi-card">
-            <div class="kpi-icon">✨</div>
-            <div class="kpi-label">New Items Added</div>
-            <div class="kpi-value"><?= $newItems ?></div>
-            <div class="kpi-subtext">Recently added products</div>
-        </div>
 
         <div class="kpi-card">
             <div class="kpi-icon">🏷️</div>
             <div class="kpi-label">Total Categories</div>
             <div class="kpi-value"><?= $totalCategories ?></div>
-            <div class="kpi-subtext">Product categories</div>
+            <div class="kpi-subtext">Item categories</div>
         </div>
 
         <div class="kpi-card">
             <div class="kpi-icon">💰</div>
             <div class="kpi-label">Total Sales</div>
-            <div class="kpi-value">₨<?= number_format($totalSales, 0) ?></div>
-            <div class="kpi-subtext">Overall revenue</div>
+            <div class="kpi-value"><?= number_format($totalSales, 0) ?></div>
+            
         </div>
 
-        <div class="kpi-card">
-            <div class="kpi-icon">📈</div>
-            <div class="kpi-label">Profit</div>
-            <div class="kpi-value">₨<?= number_format($totalProfit, 0) ?></div>
-            <div class="kpi-subtext">~30% margin</div>
-        </div>
-
-        <div class="kpi-card">
-            <div class="kpi-icon">📉</div>
-            <div class="kpi-label">Loss</div>
-            <div class="kpi-value">₨<?= number_format($totalLoss, 0) ?></div>
-            <div class="kpi-subtext">Cancelled orders</div>
-        </div>
+       
     </section>
 
     <!-- Charts Section -->
     <section class="charts-container">
         <!-- Sales by Item Chart -->
         <div class="chart-box">
-            <h3>📊 Sales by Item (Pie Chart)</h3>
+            <h3>📊 Sales by Item </h3>
             <div class="chart-wrapper">
                 <canvas id="salesPieChart"></canvas>
             </div>
         </div>
 
-        <!-- Profit vs Loss Chart -->
-        <div class="chart-box">
-            <h3>💹 Profit vs Loss</h3>
-            <div class="chart-wrapper">
-                <canvas id="profitLossChart"></canvas>
-            </div>
-        </div>
+     
+       
 
-        <!-- Sales Trend Chart -->
-        <div class="chart-box">
-            <h3>📈 Recent Sales Quantity</h3>
-            <div class="chart-wrapper">
-                <canvas id="salesQuantityChart"></canvas>
-            </div>
-        </div>
+     
     </section>
 
 
@@ -366,11 +337,7 @@
     // Data from PHP
     const salesByItem = <?= json_encode($salesByItem) ?>;
     const totalSales = <?= $totalSales ?>;
-    const totalProfit = <?= $totalProfit ?>;
-    const totalLoss = <?= $totalLoss ?>;
-    const completedOrders = <?= $completedOrders ?>;
-    const pendingOrders = <?= $pendingOrders ?>;
-    const cancelledOrders = <?= $cancelledOrders ?>;
+ 
 
     // Chart colors
     const colors = [
@@ -380,106 +347,49 @@
 
     // 1. Sales by Item - Pie Chart
     const salesCtx = document.getElementById('salesPieChart').getContext('2d');
-    new Chart(salesCtx, {
-        type: 'doughnut',
-        data: {
-            labels: salesByItem.map(item => item.name),
-            datasets: [{
-                data: salesByItem.map(item => item.sold),
-                backgroundColor: colors.slice(0, salesByItem.length),
-                borderColor: '#fff',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        font: { size: 12, family: "'Poppins', sans-serif" },
-                        padding: 15,
-                        boxWidth: 12
-                    }
-                }
-            }
-        }
-    });
+   new Chart(salesCtx, {
+    type: 'doughnut',
+    data: {
+        labels: salesByItem.map(item => item.name),
+        datasets: [{
+            data: salesByItem.map(item => item.sold),
+            backgroundColor: colors.slice(0, salesByItem.length),
+            borderColor: '#fff',
+            borderWidth: 2,
+            hoverOffset: 12
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
 
-    // 2. Profit vs Loss - Bar Chart
-    const profitCtx = document.getElementById('profitLossChart').getContext('2d');
-    new Chart(profitCtx, {
-        type: 'bar',
-        data: {
-            labels: ['Profit', 'Loss'],
-            datasets: [{
-                label: 'Amount (₨)',
-                data: [totalProfit, totalLoss],
-                backgroundColor: ['#4caf50', '#f44336'],
-                borderColor: ['#388e3c', '#d32f2f'],
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            return '₨' + value.toLocaleString();
-                        }
+        // 🔥 KEY FIXES
+        cutout: '60%',        // thinner ring, more presence
+        radius: '90%',        // fill container
+
+        plugins: {
+            legend: {
+                position: 'right',   // ⬅️ BIG improvement
+                labels: {
+                    boxWidth: 14,
+                    padding: 12,
+                    font: {
+                        size: 12,
+                        family: "'Poppins', sans-serif"
                     }
                 }
             },
-            plugins: {
-                legend: {
-                    labels: {
-                        font: { family: "'Poppins', sans-serif" }
-                    }
+            tooltip: {
+                padding: 12,
+                bodyFont: {
+                    size: 13
                 }
             }
         }
-    });
+    }
+});
 
-    // 3. Sales Quantity Bar Chart
-    const quantityCtx = document.getElementById('salesQuantityChart').getContext('2d');
-    new Chart(quantityCtx, {
-        type: 'bar',
-        data: {
-            labels: salesByItem.map(item => item.name).slice(0, 8),
-            datasets: [{
-                label: 'Quantity Sold',
-                data: salesByItem.map(item => item.sold).slice(0, 8),
-                backgroundColor: '#8a2be2',
-                borderColor: '#4b0082',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            indexAxis: 'y',
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 1
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        font: { family: "'Poppins', sans-serif" }
-                    }
-                }
-            }
-        }
-    });
-</script>
+   </script>
 
 </body>
 </html>
