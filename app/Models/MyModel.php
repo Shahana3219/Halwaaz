@@ -95,41 +95,41 @@ public function insert_to_tb($tbl_name,$data){
     }
 
 
-    //ALL items (from all categories)
-public function get_items($search = null, $category = null, $priceSort = null, $qtySort = null)
-{
-    $query = $this->db->table('tbl_items i');
-    $query->select('i.id, i.name, i.quantity, i.amount, i.image, c.name AS category');
-    $query->join('tbl_category c', 'c.id = i.category', 'left');
-    $query->where('i.status',0);
+//     //ALL items (from all categories)
+// public function get_items($search = null, $category = null, $priceSort = null, $qtySort = null)
+// {
+//     $query = $this->db->table('tbl_items i');
+//     $query->select('i.id, i.name, i.quantity, i.amount, i.image, c.name AS category');
+//     $query->join('tbl_category c', 'c.id = i.category', 'left');
+//     $query->where('i.status',0);
 
-    if($search)
-    {
-       $query->like('i.name',$search); 
-    }
-    if($category)
-    {
-        $query->where('i.category',$category);
-    }
-    if ($priceSort == 'price_asc') 
-    {
-        $query->orderBy('i.amount', 'ASC');
-    }elseif ($priceSort == 'price_desc') 
-    {
-        $query->orderBy('i.amount', 'DESC');
-    }
+//     if($search)
+//     {
+//        $query->like('i.name',$search); 
+//     }
+//     if($category)
+//     {
+//         $query->where('i.category',$category);
+//     }
+//     if ($priceSort == 'price_asc') 
+//     {
+//         $query->orderBy('i.amount', 'ASC');
+//     }elseif ($priceSort == 'price_desc') 
+//     {
+//         $query->orderBy('i.amount', 'DESC');
+//     }
 
-    if ($qtySort == 'qty_asc') 
-    {
-        $query->orderBy('i.quantity', 'ASC');
-    } elseif ($qtySort == 'qty_desc') 
-    {
-        $query->orderBy('i.quantity', 'DESC');
-    }
-    // Log the SQL query for debugging
-    log_message('debug', 'Executed SQL: ' . $this->db->getLastQuery());
-    return $query->get()->getResultArray();
-}
+//     if ($qtySort == 'qty_asc') 
+//     {
+//         $query->orderBy('i.quantity', 'ASC');
+//     } elseif ($qtySort == 'qty_desc') 
+//     {
+//         $query->orderBy('i.quantity', 'DESC');
+//     }
+//     // Log the SQL query for debugging
+//     log_message('debug', 'Executed SQL: ' . $this->db->getLastQuery());
+//     return $query->get()->getResultArray();
+// }
    
 
 //             //ONLY items of ONE category

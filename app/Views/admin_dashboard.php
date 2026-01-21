@@ -111,14 +111,14 @@
         <div class="kpi-card">
             <div class="kpi-icon">📦</div>
             <div class="kpi-label">Total Items</div>
-            <div class="kpi-value"><?= $totalItems ?></div>
+            <div class="kpi-value"><?= $totalItemsCount ?></div>
             <div class="kpi-subtext">Active items in system</div>
         </div>
 
         <div class="kpi-card">
             <div class="kpi-icon">🏷️</div>
             <div class="kpi-label">Total Categories</div>
-            <div class="kpi-value"><?= $totalCategories ?></div>
+            <div class="kpi-value"><?= $totalCategoriesCount ?></div>
             <div class="kpi-subtext">Item categories</div>
         </div>
 
@@ -142,32 +142,47 @@
     </div>
 </section>
 
-                <!-- Library used for piechart -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+$(document).ready(function () {
+
     // PHP data: number of items sold per item
-    const salesByItem = <?= json_encode($salesByItem) ?>;
+    var salesByItem = <?= json_encode($salesByItem) ?>;
 
     // Colors for chart
-    const colors = [
+    var colors = [
         '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8',
         '#F7DC6F', '#BB8FCE', '#85C1E2', '#F8B88B', '#A3E4D7'
     ];
 
-    //pie and doughnut are built-in chart types
-    //No extension or plugin required
+    // Safety check: do not render empty chart
+    if (!salesByItem || salesByItem.length === 0) {
+        console.warn('No sales data available for chart');
+        return;
+    }
 
+    // $.map() instead of loops
+    var labels = $.map(salesByItem, function (a) {
+        return a.name;
+    });
 
-    // Pie Chart: Sales by Item
-    const ctx = document.getElementById('salesPieChart').getContext('2d');
-    new Chart(ctx, {
+    var data = $.map(salesByItem, function (b) {
+        return b.sold;
+    });
+
+    // Get canvas context
+    var x = $('#salesPieChart')[0].getContext('2d');
+
+    // Initialize Doughnut Chart
+    new Chart(x, {
         type: 'doughnut',
         data: {
-            labels: salesByItem.map(item => item.name),
+            labels: labels,
             datasets: [{
-                data: salesByItem.map(item => item.sold),
-                backgroundColor: colors.slice(0, salesByItem.length),
-                borderColor: '#fff',
+                data: data,
+                backgroundColor: colors.slice(0, data.length),
+                borderColor: '#ffffff',
                 borderWidth: 2,
                 hoverOffset: 12
             }]
@@ -198,7 +213,10 @@
             }
         }
     });
+
+});
 </script>
+
 
 </main>
 

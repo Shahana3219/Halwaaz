@@ -219,7 +219,7 @@ body {
 
                 <div class="form-group">
                     <label>Quantity</label>
-                    <input type="text" name="quantity" placeholder="e.g. 250g / 1kg">
+                    <input type="text" name="quantity" placeholder="e.g.  1=1kg">
                 </div>
             </div>
 

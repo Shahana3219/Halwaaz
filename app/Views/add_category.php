@@ -365,6 +365,7 @@ th {
         $('#edit_id').val($(this).data('id'));
         $('#edit_name').val($(this).data('name'));
         
+        // Show modal with fade effect
         $('#editModal').fadeIn();
     });
 

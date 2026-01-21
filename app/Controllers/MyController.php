@@ -168,6 +168,7 @@ if (!empty($rawSales)) {
             'sold' => (int) $row['total_sold']
         ];
     }
+    
 }
 
 // Guarantee at least one slice so the chart never breaks
@@ -177,8 +178,8 @@ if (empty($salesByItem)) {
     ];
 }
     return view('admin_dashboard', [
-        'totalItems'      => $totalItemsCount,
-        'totalCategories' => $totalCategoriesCount,
+        'totalItemsCount'      => $totalItemsCount,
+        'totalCategoriesCount' => $totalCategoriesCount,
         'totalSales'      => $totalSalesCount,
         'salesByItem'     => $salesByItem // Pass it to the view
     ]);
@@ -356,29 +357,38 @@ public function save_item(){
 }
 
                                  //ITEM LIST
-public function items_list(){
- if (!session()->get('logged_in') || session()->get('role') != 1) {
+public function items_list()
+{
+    if (!session()->get('logged_in') || session()->get('role') != 1) {
         return redirect()->to('/')
             ->with('error', 'Unauthorized access');
     }
-    $categories=$this->MyModel->select_data('tbl_category','id,name',['status'=>0]);
-    log_message('debug','Items list accessed by user ID: '.session()->get('user_id'));
-$search = trim($this->request->getGet('search') ?? '');
 
-    $category=$this->request->getGet('category');
-    $priceSort=$this->request->getGet('price_sort');
-    $qtySort=$this->request->getGet('qty_sort');
+    $categories = $this->MyModel->select_data(
+        'tbl_category',
+        'id,name',
+        ['status' => 0]
+    );
 
-    
-    $items=$this->MyModel->get_items($search,$category,$priceSort,$qtySort);
-    return view('items_list',
-    ['items'=>$items,
-    'categories'=>$categories
-    ]
-);
-   
+    $search     = $this->request->getGet('search');
+    $category   = $this->request->getGet('category');
+    $priceSort  = $this->request->getGet('price_sort');
+    $qtySort    = $this->request->getGet('qty_sort');
+    $instock    = $this->request->getGet('instock'); 
+    $items = $this->MyModel->get_filtered_items(
+        $search,
+        $category,
+        $priceSort,
+        $qtySort,
+        $instock
+    );
 
+    return view('items_list', [
+        'items'      => $items,
+        'categories' => $categories
+    ]);
 }
+
 
                                //EDITING ITEMS
 public function edit_itemlist($id){

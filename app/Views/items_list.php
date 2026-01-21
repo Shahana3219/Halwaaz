@@ -262,7 +262,7 @@ th {
                     <option value="">select a category</option>
                         <?php foreach ($categories as $cat): ?>
         <option value="<?= $cat['id'] ?>"
-                <?=(($_GET['category']??'')==$cat['id'])? 'selected':''?>>
+                <?=(($_GET['category_name']??'')==$cat['id'])? 'selected':''?>>
             <?= $cat['name'] ?>
         </option>
     <?php endforeach; ?>
