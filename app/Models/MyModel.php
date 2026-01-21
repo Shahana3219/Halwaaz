@@ -344,6 +344,7 @@ public function get_userwise_report($userName = null, $fromDate = null, $toDate 
     }
 
     $builder->groupBy('o.user_id');
+    //recent order based showing
     $builder->orderBy('MAX(o.order_date)', 'DESC');
 
     return $builder->get()->getResultArray();

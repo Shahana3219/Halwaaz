@@ -374,7 +374,8 @@ public function items_list()
     $category   = $this->request->getGet('category');
     $priceSort  = $this->request->getGet('price_sort');
     $qtySort    = $this->request->getGet('qty_sort');
-    $instock    = $this->request->getGet('instock'); 
+    $instock    = $this->request->getGet('instock'); // optional
+
     $items = $this->MyModel->get_filtered_items(
         $search,
         $category,
@@ -1225,18 +1226,33 @@ public function report_pdf1()
         'totals'  => $totals
     ]);
 
-    // TCPDF setup
-    $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
-    $pdf->SetCreator('Halwaaz');
-    $pdf->SetAuthor('Halwaaz Admin');
-    $pdf->SetTitle('Userwise Sales Report');
-    $pdf->SetMargins(10, 10, 10);
-    $pdf->SetAutoPageBreak(true, 15);
-    $pdf->AddPage();
+  // Create a new PDF (Portrait, A4 size)      UTF-character encoding
+$pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
 
-    // Render PDF
-    $pdf->writeHTML($html, true, false, true, false, '');
-    $pdf->Output('halwaaz_userwise_report.pdf', 'D');
+// Set PDF creator name
+$pdf->SetCreator('Halwaaz');
+
+// Set author name in pdf properties
+$pdf->SetAuthor('Halwaaz Admin');
+
+// Set PDF title
+$pdf->SetTitle('Userwise Sales Report');
+
+// Set page margins (left, top, right)
+$pdf->SetMargins(10, 10, 10);
+
+// Enable auto page break with bottom margin
+$pdf->SetAutoPageBreak(true, 15);
+
+// Add a new page to the PDF
+$pdf->AddPage();
+
+// Write HTML content into the PDF
+$pdf->writeHTML($html, true, false, true, false, '');
+
+// Download the PDF file
+$pdf->Output('halwaaz_userwise_report.pdf', 'D');
+
 }
 
 
