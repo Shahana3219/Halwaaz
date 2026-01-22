@@ -472,16 +472,22 @@
 
 
                                     <p class="fs-5 fw-bold text-success mb-3">
+                                        
                                         Price :₹ <?=esc($item['amount'])?>
                                     </p>
 
                                    <div class="d-flex gap-2">
+
+                                    <!-- IN CART -->
+
     <?php $inCart=in_array($item['id'],$cartItemIds??[]);?>
+
     <button class="btn btn-sm  flex-fill <?=$inCart? 'btn-success':'btn-outline-primary add_to_cart-btn'?>"
      data-id="<?=$item['id']?>"
-                
-     <?=$inCart ? 'disabled':''?>  
-     >
+
+       
+            <?=$inCart ? 'disabled':''?>  
+    >
         <i class="bi bi-cart-plus"></i>
         <?=$inCart ? 'Added to Cart':'Add to Cart'?>
     </button>
@@ -492,7 +498,7 @@
     <?= ($item['quantity'] <= 0) ? 'disabled' : '' ?>
 >
     Buy
-</button>
+    </button>
 
 
 

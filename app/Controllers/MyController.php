@@ -786,19 +786,14 @@ public function buy_now()
             'message' => 'Invalid item'
         ]);
     }
-$db = \Config\Database::connect();
-    $db->transStart();
-    
-    $orderDate=date('Y-m-d H:i:s');
-    $delDate   = date('Y-m-d', strtotime('+3 days'));
-// Fetch item
+
+    // Fetch item
     $item = $this->MyModel->select_data(
         'tbl_items',
         'id,quantity,amount',
         ['id' => $itemId, 'status' => 0]
     );
-     if (empty($item)) {
-        $db->transRollback();
+    if (empty($item)) {
         return $this->response->setJSON([
             'status' => 'error',
             'message' => 'Item not found'
@@ -806,86 +801,76 @@ $db = \Config\Database::connect();
     }
 
     if ($item[0]['quantity'] < $qty) {
-        $db->transRollback();
         return $this->response->setJSON([
             'status' => 'error',
             'message' => 'Insufficient stock'
         ]);
     }
-    $orderDate=date('Y-m-d H:i:s');
-    $delDate=date('Y-m-d', strtotime('+3 days'));
-    $total=$item[0]['amount'] * $qty;
-
     
-   $delStatus = $this->MyModel->select_data(
-    'tbl_del_status',
-    'id',
-    ['name' => 'placed']
-);
+    $orderDate = date('Y-m-d H:i:s');
+    $delDate = date('Y-m-d', strtotime('+3 days'));
+    $total = $item[0]['amount'] * $qty;
 
-if (empty($delStatus)) {
-    $db->transRollback();
-    return $this->response->setJSON([
-        'status' => 'error',
-        'message' => 'Delivery status not configured'
-    ]);
-}
+    $delStatus = $this->MyModel->select_data(
+        'tbl_del_status',
+        'id',
+        ['name' => 'placed']
+    );
 
-$placedStatusId = (int) $delStatus[0]['id'];
-
-        // INSERT INTO tbl_orders
-$this->MyModel->insert_to_tb('tbl_orders', [
-    'added_by'     => $userId,
-    'status'       => 0,
-    'user_id'      => $userId,
-    // 'item_id'      => $itemId,
-    // 'item_quantity'=> $qty,
-    'order_date'   => $orderDate,
-    'del_date'     => $delDate,
-    'del_status'   => 'placed', // ✅ TEXT
-    'total_amount' => $total,
-    'order_status' => 'Placed',
-    'created_at'   => date('Y-m-d H:i:s')
-]);
-
-
-
-    $orderId = $db->insertID();
-
-    // INSERT ORDER ITEMS
-        $this->MyModel->insert_to_tb('tbl_order_items', [
-    'added_by'     => $userId,
-    'status'       => 0,
-    'order_id'     => $orderId,
-    'item_id'      => $itemId,
-    'item_quantity'=> $qty,  // ✅ correct column
-    'unit_price'   => (int) $item[0]['amount'],
-    'total_amount' => (int) ($item[0]['amount'] * $qty),
-    'order_date'   => date('Y-m-d'),
-    'del_status'   => $placedStatusId,
-    'created_at'   => date('Y-m-d H:i:s')
-]);
-
-         // REDUCE ITEM QUANTITY
-        $this->MyModel->update_data(
-            'tbl_items',
-            ['quantity' => $item[0]['quantity'] - $qty],
-            ['id' => $itemId]
-        );
-    
-    
-   $db->transComplete();
-   
-    if ($db->transStatus() === false) {
+    if (empty($delStatus)) {
         return $this->response->setJSON([
             'status' => 'error',
-            'message' => 'Order failed'
+            'message' => 'Delivery status not configured'
         ]);
     }
- $db->table('tbl_cart')
-           ->where('user_id', $userId)
-           ->where('status', 0)
-           ->update(['status' => 1]);
+
+    $placedStatusId = (int) $delStatus[0]['id'];
+
+    // INSERT INTO tbl_orders
+    $this->MyModel->insert_to_tb('tbl_orders', [
+        'added_by'     => $userId,
+        'status'       => 0,
+        'user_id'      => $userId,
+        'order_date'   => $orderDate,
+        'del_date'     => $delDate,
+        'del_status'   => 'placed',
+        'total_amount' => $total,
+        'order_status' => 'Placed',
+        'created_at'   => $orderDate
+    ]);
+// Get the ID of the order we just inserted
+    $orderId = $this->MyModel->getLastInsertId();
+
+    if (!$orderId) {
+        return $this->response->setJSON([
+            'status' => 'error',
+            'message' => 'Failed to create order'
+        ]);
+    }
+
+    // INSERT ORDER ITEMS
+    $this->MyModel->insert_to_tb('tbl_order_items', [
+        'added_by'     => $userId,
+        'status'       => 0,
+        'order_id'     => $orderId,
+        'item_id'      => $itemId,
+        'item_quantity'=> $qty,
+        'unit_price'   => (int) $item[0]['amount'],
+        'total_amount' => (int) ($item[0]['amount'] * $qty),
+        'order_date'   => date('Y-m-d'),
+        'del_status'   => $placedStatusId,
+        'created_at'   => $orderDate
+    ]);
+
+    // REDUCE ITEM QUANTITY
+    $this->MyModel->update_data(
+        'tbl_items',
+        ['quantity' => $item[0]['quantity'] - $qty],
+        ['id' => $itemId]
+    );
+
+    // Remove item from cart
+    $this->MyModel->update_data('tbl_cart', ['status' => 1], ['user_id' => $userId, 'item_id' => $itemId, 'status' => 0]);
  return $this->response->setJSON(
     [
         'status'  => 'success',
@@ -916,62 +901,51 @@ public function checkout_cart()
         ]);
     }
 
-    $db = \Config\Database::connect();
-    $db->transBegin(); // Start transaction for data consistency
-
     try {
         $totalAmount = 0;
         foreach ($cartItems as $item) {
             $totalAmount += $item['amount'] * $item['quantity'];
         }
 
+        $orderDate = date('Y-m-d H:i:s');
         $deliveryDate = date('Y-m-d', strtotime('+3 days'));
 
-        // INSERT ORDER (FIXED - removed item_id and item_quantity)
-        $orderData = [
+        // INSERT ORDER
+        $this->MyModel->insert_to_tb('tbl_orders', [
             'user_id'      => $userId,
             'total_amount' => $totalAmount,
-            // 'item_id'      => $item['item_id'], 
-            // 'item_quantity'=> $item['quantity'], 
             'order_status' => 'Placed',
-            'order_date'   => date('Y-m-d H:i:s'),
+            'order_date'   => $orderDate,
             'del_date'     => $deliveryDate,
             'status'       => 0,
-            'del_status'   => 0,
+            'del_status'   => 'placed',
             'added_by'     => $userId, 
-            'created_at'   => date('Y-m-d H:i:s')
-        ];
+            'created_at'   => $orderDate
+        ]);
 
-        $db->table('tbl_orders')->insert($orderData);
-        $orderId = $db->insertID();
+        $orderId = $this->MyModel->getLastInsertId();
+
+        if (!$orderId) {
+            throw new \Exception('Failed to create order');
+        }
 
         foreach ($cartItems as $item) {
-             $unitPrice = $item['amount'];
-             $itemTotal = $unitPrice * $item['quantity'];
-            $orderItemData = [
+            $this->MyModel->insert_to_tb('tbl_order_items', [
                 'order_id'       => $orderId,
                 'item_id'        => $item['item_id'],
-                'unit_price'    => $item['amount'],  
-                'total_amount'  => $item['amount'] * $item['quantity'],
+                'unit_price'     => $item['amount'],  
+                'total_amount'   => $item['amount'] * $item['quantity'],
                 'item_quantity'  => $item['quantity'],
-                'order_date'     => date('Y-m-d H:i:s'),
+                'order_date'     => $orderDate,
                 'status'         => 0,
                 'del_status'     => 0,
                 'added_by'       => $userId,
-                'created_at'     => date('Y-m-d H:i:s')
-            ];
-            
-            $db->table('tbl_order_items')->insert($orderItemData);
+                'created_at'     => $orderDate
+            ]);
         }
 
         // CLEAR CART
-        $db->table('tbl_cart')
-           ->where('user_id', $userId)
-           ->where('status', 0)
-           ->update(['status' => 1]);
-
-        // Commit transaction
-        $db->transCommit();
+        $this->MyModel->update_data('tbl_cart', ['status' => 1], ['user_id' => $userId, 'status' => 0]);
 
         // Update cart count in session
         session()->set('cartCount', 0);
@@ -983,8 +957,6 @@ public function checkout_cart()
         ]);
 
     } catch (\Exception $e) {
-        $db->transRollback(); // Rollback on error
-        
         log_message('error', 'Checkout failed: ' . $e->getMessage());
         
         return $this->response->setJSON([
@@ -1057,45 +1029,41 @@ public function cancel_order()
         return redirect()->to(base_url('my_orders'));
     }
 
-    $db = \Config\Database::connect();
-    $db->transStart();
-
-    // 1. Cancel order (tbl_orders)
-    $updatedOrder = $this->MyModel->update_data(
-        'tbl_orders',
-        [
-            'status'       => 1,
-            'order_status' => 'Cancelled',
-            'del_status'   => 3
-        ],
-        [
-            'id'      => $orderId,
-            'user_id' => $userId,
-            'status'  => 0
-        ]
-    );
-
-    // 2. Cancel order items (tbl_order_items)
-    if ($updatedOrder) {
-        $this->MyModel->update_data(
-            'tbl_order_items',
+    try {
+        // 1. Cancel order (tbl_orders)
+        $updatedOrder = $this->MyModel->update_data(
+            'tbl_orders',
             [
-                'status'     => 1,
-                'del_status' => 3
+                'status'       => 1,
+                'order_status' => 'Cancelled',
+                'del_status'   => 3
             ],
             [
-                'order_id' => $orderId,
-                'status'   => 0
+                'id'      => $orderId,
+                'user_id' => $userId,
+                'status'  => 0
             ]
         );
-    }
 
-    $db->transComplete();
+        // 2. Cancel order items (tbl_order_items)
+        if ($updatedOrder) {
+            $this->MyModel->update_data(
+                'tbl_order_items',
+                [
+                    'status'     => 1,
+                    'del_status' => 3
+                ],
+                [
+                    'order_id' => $orderId,
+                    'status'   => 0
+                ]
+            );
+        }
 
-    if ($db->transStatus() === false) {
-        $session->setFlashdata('error', 'Unable to cancel order.');
-    } else {
         $session->setFlashdata('success', 'Order cancelled successfully.');
+    } catch (\Exception $e) {
+        log_message('error', 'Cancel order failed: ' . $e->getMessage());
+        $session->setFlashdata('error', 'Unable to cancel order.');
     }
 
     return redirect()->to(base_url('my_orders'));

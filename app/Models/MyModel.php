@@ -53,6 +53,14 @@ public function insert_to_tb($tbl_name,$data){
     ->table($tbl_name)
     ->insert($data);
 }
+
+            //GET LAST INSERT ID
+public function getLastInsertId(){
+    return $this->db->insertID();
+}
+
+
+
  public function select_data($tbl_name, $columns = '', $condition = [], $keywords = [], $searchColumns = [])
 {
     $query=$this->db->table($tbl_name);
